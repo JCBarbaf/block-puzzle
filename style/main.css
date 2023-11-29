@@ -3,21 +3,58 @@
 }
 
 body {
-  background-color: #acabab;
+  background-color: rgb(198, 198, 235);
 }
 
 .map {
-  background-color: yellow;
-  width: 600px;
-  height: 600px;
+  width: 700px;
+  height: 700px;
   margin: 2% auto;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(7, 1fr);
 }
-.map div {
-  background-color: #34C9F9;
-  border: 10px solid rgba(0, 0, 0, 0.1);
-  margin: 5px;
-  outline: 5px solid #069ccd;
+.map .square {
+  visibility: hidden;
+  background-color: #01BBF8;
+}
+.map .active {
+  visibility: visible;
+}
+
+.piece, .square {
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.piece div, .square div {
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 70px;
+  height: 70px;
+}
+
+.piece-container {
+  background-color: rgb(147, 147, 182);
+  width: 250px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 5px solid rgba(0, 0, 0, 0.2);
+}
+
+.piece {
+  background-color: #068B06;
+  width: 200px;
+  height: 100px;
+}
+.piece div {
+  width: 170px;
+}
+.piece.clone {
+  position: fixed;
+  top: 0;
+  left: 0;
 }/*# sourceMappingURL=main.css.map */
