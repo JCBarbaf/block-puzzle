@@ -1,0 +1,26 @@
+$body-color: #acabab;
+$square-color: #34C9F9;
+$piece-color: #38A238;
+*{
+    box-sizing: border-box;
+}
+body {
+    background-color: $body-color;
+}
+.map {
+    background-color: yellow;
+    $size: 600px;
+    width: $size;
+    height: $size;
+    margin: 2% auto;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    div {
+        background-color: $square-color;
+        border: 10px solid rgba(0, 0, 0, 0.1);
+        $outline-width: 5px;
+        margin: $outline-width;
+        outline: 5px solid scale-color($square-color, $lightness:-30%);
+    }
+}

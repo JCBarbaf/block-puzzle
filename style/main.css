@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #acabab;
+}
+
+.map {
+  background-color: yellow;
+  width: 600px;
+  height: 600px;
+  margin: 2% auto;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+}
+.map div {
+  background-color: #34C9F9;
+  border: 10px solid rgba(0, 0, 0, 0.1);
+  margin: 5px;
+  outline: 5px solid #069ccd;
+}/*# sourceMappingURL=main.css.map */
