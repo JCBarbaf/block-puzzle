@@ -21,17 +21,19 @@ body {
     .piece {
         pointer-events: all;
         opacity: 0.5;
-        position: absolute;
-        top: ($piece-size/2-$snap-size/2)*-1;
-        left: ($piece-size/2-$snap-size/2)*-1;
-        transform-origin: 25% 50%;
     }
 }
 .snap-point {
     background-color: red;
     width: $snap-size;
     height: $snap-size;
-    z-index: 200;
+    position: relative;
+    .piece {
+        position: absolute;
+        top: ($piece-size/2-$snap-size/2)*-1;
+        left: ($piece-size/2-$snap-size/2)*-1;
+        transform-origin: 25% 50%;
+    }
 }
 .map {
     // background-color: yellow;
@@ -49,19 +51,19 @@ body {
     .active {
         visibility: visible;
     }
-    .piece {
-        transform-origin: 0% 0%;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
+    // .piece {
+    //     // transform-origin: 0% 0%;
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    // }
 }
 .piece,.square {
     border: 5px solid rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
     align-items: center;
-    div {
+    &>div {
         background-color: rgba(255, 255, 255, 0.2);
         width: $piece-size - $inside-margin;
         height: $piece-size - $inside-margin;
@@ -89,7 +91,7 @@ body {
         width: ($piece-size*2)-$inside-margin;
     }
     &.clone {
-        transform-origin: 50% 25%;
+        // transform-origin: 50% 25%;
         // position: fixed;
         // top: 0;
         // left: 0;

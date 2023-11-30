@@ -25,7 +25,7 @@ export default (() => {
     // On regular click place the piece
     pieceClone.addEventListener('click', () => {
       pieceClone.classList.add('placed');
-      map.appendChild(pieceClone);
+      // map.appendChild(pieceClone);
       pieceClone = null;
       document.dispatchEvent(new CustomEvent('placePiece'));
     });

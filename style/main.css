@@ -15,17 +15,19 @@ body {
 .mouse-follower .piece {
   pointer-events: all;
   opacity: 0.5;
-  position: absolute;
-  top: -40px;
-  left: -40px;
-  transform-origin: 25% 50%;
 }
 
 .snap-point {
   background-color: red;
   width: 20px;
   height: 20px;
-  z-index: 200;
+  position: relative;
+}
+.snap-point .piece {
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  transform-origin: 25% 50%;
 }
 
 .map {
@@ -43,12 +45,6 @@ body {
 .map .active {
   visibility: visible;
 }
-.map .piece {
-  transform-origin: 0% 0%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
 
 .piece, .square {
   border: 5px solid rgba(0, 0, 0, 0.1);
@@ -56,7 +52,7 @@ body {
   justify-content: center;
   align-items: center;
 }
-.piece div, .square div {
+.piece > div, .square > div {
   background-color: rgba(255, 255, 255, 0.2);
   width: 70px;
   height: 70px;
@@ -83,9 +79,6 @@ body {
 }
 .piece div {
   width: 170px;
-}
-.piece.clone {
-  transform-origin: 50% 25%;
 }
 .piece.placed {
   background-color: rgb(202, 140, 25);
