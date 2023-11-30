@@ -16,10 +16,16 @@ body {
 }
 .map .square {
   visibility: hidden;
-  background-color: #01BBF8;
+  background-color: rgb(1, 187, 248);
 }
 .map .active {
   visibility: visible;
+}
+.map .piece {
+  transform-origin: 0% 0%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .piece, .square {
@@ -46,7 +52,7 @@ body {
 }
 
 .piece {
-  background-color: #068B06;
+  background-color: rgb(6, 139, 6);
   width: 200px;
   height: 100px;
 }
@@ -54,7 +60,11 @@ body {
   width: 170px;
 }
 .piece.clone {
+  transform-origin: 50% 25%;
   position: fixed;
   top: 0;
   left: 0;
+}
+.piece.placed {
+  background-color: rgb(202, 140, 25);
 }/*# sourceMappingURL=main.css.map */

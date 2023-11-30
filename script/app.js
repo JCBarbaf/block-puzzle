@@ -1,2 +1,2 @@
-import './generate-map.js';
+import './map.js';
 import './piece.js';
