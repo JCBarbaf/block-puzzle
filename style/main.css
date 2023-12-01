@@ -10,15 +10,14 @@ body {
   position: relative;
   top: 0;
   bottom: 0;
-  pointer-events: none;
 }
 .mouse-follower .piece {
   pointer-events: all;
-  opacity: 0.5;
+  z-index: 1000;
 }
 
 .snap-point {
-  background-color: red;
+  pointer-events: none;
   width: 20px;
   height: 20px;
   position: relative;
@@ -62,7 +61,7 @@ body {
 }
 
 .piece-container {
-  background-color: rgb(147, 147, 182);
+  background-color: rgb(188, 188, 216);
   width: 250px;
   height: 150px;
   display: flex;
@@ -73,7 +72,7 @@ body {
 }
 
 .piece {
-  background-color: rgb(6, 139, 6);
+  background-color: rgb(36, 161, 36);
   width: 200px;
   height: 100px;
 }

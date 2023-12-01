@@ -1,7 +1,7 @@
 $body-color: rgb(198, 198, 235);
-$container-color: rgb(147, 147, 182);
+$container-color: rgb(188, 188, 216);
 $square-color: rgb(1, 187, 248);
-$piece-color: rgb(6, 139, 6);
+$piece-color: rgb(36, 161, 36);
 $placed-color: rgb(202, 140, 25);
 $map-size: 700px;
 $piece-size: $map-size/7;
@@ -17,14 +17,15 @@ body {
     position: relative;
     top: 0;
     bottom: 0;
-    pointer-events: none;
     .piece {
+        // opacity: 0.5;
         pointer-events: all;
-        opacity: 0.5;
+        z-index: 1000;
     }
 }
 .snap-point {
-    background-color: red;
+    pointer-events: none;
+    // background-color: red;
     width: $snap-size;
     height: $snap-size;
     position: relative;
