@@ -8,6 +8,7 @@ $font: Arial, Helvetica, sans-serif;
 $piece-size: $map-size/7;
 $snap-size: 20px;
 $inside-margin: 30;
+$border: 5px solid rgba(0, 0, 0, 0.2);
 *{
     box-sizing: border-box;
 }
@@ -25,7 +26,6 @@ a {
     bottom: 0;
     .piece {
         // opacity: 0.5;
-        pointer-events: all;
         z-index: 1000;
     }
 }
@@ -36,6 +36,7 @@ a {
     height: $snap-size;
     position: relative;
     .piece {
+        pointer-events: all;
         position: absolute;
         top: ($piece-size/2-$snap-size/2)*-1;
         left: ($piece-size/2-$snap-size/2)*-1;
@@ -80,7 +81,7 @@ a {
     justify-content: center;
     align-items: center;
     border-radius: 20px;
-    border: 5px solid rgba(0, 0, 0, 0.2);
+    border: $border;
 }
 .piece {
     background-color: $piece-color;
@@ -105,24 +106,38 @@ a {
     bottom: 0;
     left: 0;
     right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: rgba(0, 0, 0, 0.3);
+    visibility: hidden;
+    &.active {
+        visibility: visible;
+    }
 }
 .modal {
-    background-color: $container-color;
-    width: 50%;
-    height: 50%;
-    border-radius: 50px;
+    width: 40%;
+    height: 30%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    background-color: $container-color;
+    border-radius: 50px;
+    border: $border;
     .modal-title {
-        background-color: red;
         width: 100%;
         font-size: 3rem;
         text-align: center;
     }
     a {
         background-color: teal;
+        border: $border;
+        border-width: 3px;
+        padding: 1%;
+        border-radius: 40px;
+        &:hover {
+            transform: scale(1.1);
+        }
     }
 }
