@@ -4,6 +4,12 @@
 
 body {
   background-color: rgb(198, 198, 235);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .mouse-follower {
@@ -24,14 +30,14 @@ body {
 }
 .snap-point .piece {
   position: absolute;
-  top: -40px;
-  left: -40px;
+  top: -32.8571428571px;
+  left: -32.8571428571px;
   transform-origin: 25% 50%;
 }
 
 .map {
-  width: 700px;
-  height: 700px;
+  width: 600px;
+  height: 600px;
   margin: 2% auto;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -53,8 +59,8 @@ body {
 }
 .piece > div, .square > div {
   background-color: rgba(255, 255, 255, 0.2);
-  width: 70px;
-  height: 70px;
+  width: 55.7142857143px;
+  height: 55.7142857143px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,8 +68,8 @@ body {
 
 .piece-container {
   background-color: rgb(188, 188, 216);
-  width: 250px;
-  height: 150px;
+  width: 221.4285714286px;
+  height: 135.7142857143px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,15 +79,47 @@ body {
 
 .piece {
   background-color: rgb(36, 161, 36);
-  width: 200px;
-  height: 100px;
+  width: 171.4285714286px;
+  height: 85.7142857143px;
 }
 .piece div {
-  width: 170px;
+  width: 141.4285714286px;
 }
 .piece.placed {
   background-color: rgb(202, 140, 25);
 }
 .piece.rotated {
   transform: rotate(90deg);
+}
+.piece.original.hidden {
+  visibility: hidden;
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal {
+  background-color: rgb(188, 188, 216);
+  width: 50%;
+  height: 50%;
+  border-radius: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.modal .modal-title {
+  background-color: red;
+  width: 100%;
+  font-size: 3rem;
+  text-align: center;
+}
+.modal a {
+  background-color: teal;
 }/*# sourceMappingURL=main.css.map */

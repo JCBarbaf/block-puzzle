@@ -1,2 +1,1 @@
-import './map.js';
-import './piece.js';
+import './game.js';
