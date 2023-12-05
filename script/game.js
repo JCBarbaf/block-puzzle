@@ -71,7 +71,7 @@ export default (() => {
     let positions = [{}];
     // let randomIndex = Math.floor(Math.random() * templates.length);
     let randomIndex = Math.floor(Math.random() * ((templates.length-1) - 2 + 1) + 2)
-    // randomIndex = 5;
+    randomIndex = 0;
     let counter = templates[randomIndex]['piecesUsed'];
     counterHandler();
     // Generate map using the template
@@ -89,6 +89,45 @@ export default (() => {
             positions[i] = null;
         }
     }
+    const rotatePiece = (event) => {
+        event.preventDefault();
+        pieceClone.classList.toggle('rotated');
+    };
+    const findSnap = () => {
+        pieceClone.classList.remove('clone');
+        let mouseRect = mouseFollower.getBoundingClientRect();
+        // Calculate the closest distance available
+        let closestDistance = null;
+        let closestDistanceIndex = null;
+        positions.forEach((snapPoint, i) => {
+            if (snapPoint) {
+                let distance = calculateDistance(snapPoint, { x: mouseRect.x, y: mouseRect.y });
+                if (closestDistance) {
+                    if (distance < closestDistance) {
+                        closestDistance = distance;
+                        closestDistanceIndex = i;
+                    };
+                } else {
+                    closestDistance = distance;
+                    closestDistanceIndex = i;
+                }
+            }
+        });
+        // Check if the closest distance is in reach
+        if (closestDistance < 40) {
+            // Check if the piece fits
+            if (pieceClone.classList.contains('rotated')) {
+                if (positions[closestDistanceIndex + 7]) {
+                    placePiece(closestDistanceIndex, true);
+                }
+            } else {
+                if (positions[closestDistanceIndex + 1]) {
+                    placePiece(closestDistanceIndex, false);
+                }
+            }
+        }
+
+    };
 
     piece.addEventListener('click', () => {
         if (counter == 1) {
@@ -100,46 +139,9 @@ export default (() => {
         pieceClone.classList.add('clone');
         mouseFollower.appendChild(pieceClone);
         // On right click rotate the piece 90deg
-        pieceClone.addEventListener('contextmenu', (event) => {
-            event.preventDefault();
-            pieceClone.classList.toggle('rotated');
-        });
+        pieceClone.addEventListener('contextmenu', rotatePiece)
         // On regular click place the piece
-        pieceClone.addEventListener('click', () => {
-            pieceClone.classList.remove('clone');
-            let mouseRect = mouseFollower.getBoundingClientRect();
-            // Calculate the closest distance available
-            let closestDistance = null;
-            let closestDistanceIndex = null;
-            positions.forEach((snapPoint, i) => {
-                if (snapPoint) {
-                    let distance = calculateDistance(snapPoint, { x: mouseRect.x, y: mouseRect.y });
-                    if (closestDistance) {
-                        if (distance < closestDistance) {
-                            closestDistance = distance;
-                            closestDistanceIndex = i;
-                        };
-                    } else {
-                        closestDistance = distance;
-                        closestDistanceIndex = i;
-                    }
-                }
-            });
-            // Check if the closest distance is in reach
-            if (closestDistance < 40) {
-                // Check if the piece fits
-                if (pieceClone.classList.contains('rotated')) {
-                    if (positions[closestDistanceIndex + 7]) {
-                        placePiece(closestDistanceIndex, true);
-                    }
-                } else {
-                    if (positions[closestDistanceIndex + 1]) {
-                        placePiece(closestDistanceIndex, false);
-                    }
-                }
-            }
-
-        });
+        pieceClone.addEventListener('click', findSnap);
     })
     //Move the piece with the mouse
     document.addEventListener('mousemove', (event) => {
@@ -155,11 +157,32 @@ export default (() => {
     function placePiece(pieceIndex, isrotated) {
         //Place piece
         pieceClone.classList.add('placed');
-        // todo quitar evento de las piezas clonadas
-        // pieceClone.removeEventListener('contextmenu');
+        // Remove previous events
+        pieceClone.removeEventListener('contextmenu', rotatePiece);
+        pieceClone.removeEventListener('click', findSnap);
+        // Remove the piece on right click
         pieceClone.addEventListener('contextmenu', (event) => {
             event.preventDefault();
-            deletePiece(event.target.closest('.piece'));
+            // Restore snap-points into positions array
+            let piece = event.target.closest('.piece');
+            let snap = piece.closest('.snap-point');
+            let snapPointsArray = Array.from(snapPoints);
+            // todo encontrar forma de que diferencie el nodo correctamente
+            let snapIndex = snapPointsArray.findIndex(div => div.isEqualNode(snap));
+            let position = snapPoints[snapIndex].getBoundingClientRect();
+            positions[snapIndex] = { 'x': position.x, 'y': position.y };
+            snapPoints[snapIndex].style.backgroundColor = "blue";
+            if (piece.classList.contains('rotated')) {
+                position = snapPoints[snapIndex+7].getBoundingClientRect();
+                positions[snapIndex+7] = { 'x': position.x, 'y': position.y };
+                snapPoints[snapIndex+7].style.backgroundColor = "blue";
+            } else {
+                position = snapPoints[snapIndex+1].getBoundingClientRect();
+                positions[snapIndex+1] = { 'x': position.x, 'y': position.y };
+                snapPoints[snapIndex+1].style.backgroundColor = "blue";
+            }
+            // Delete piece
+            deletePiece(piece);
         });
         snapPoints[pieceIndex].appendChild(pieceClone);
         //Delete the snap-points in use
