@@ -5,8 +5,7 @@
 body {
   background-color: rgb(198, 198, 235);
   font-family: Arial, Helvetica, sans-serif;
-  width: 96%;
-  margin: 0 auto;
+  overflow: hidden;
 }
 
 a {

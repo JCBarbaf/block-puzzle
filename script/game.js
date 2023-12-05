@@ -70,8 +70,8 @@ export default (() => {
     ];
     let positions = [{}];
     // let randomIndex = Math.floor(Math.random() * templates.length);
-    let randomIndex = Math.floor(Math.random() * ((templates.length-1) - 2 + 1) + 2)
-    randomIndex = 0;
+    let randomIndex = Math.floor(Math.random() * ((templates.length-1) - 2 + 1) + 2);
+    // randomIndex = 0;
     let counter = templates[randomIndex]['piecesUsed'];
     counterHandler();
     // Generate map using the template
@@ -168,18 +168,17 @@ export default (() => {
             let snap = piece.closest('.snap-point');
             let snapPointsArray = Array.from(snapPoints);
             // todo encontrar forma de que diferencie el nodo correctamente
-            let snapIndex = snapPointsArray.findIndex(div => div.isEqualNode(snap));
+            const isSnap = (element) => element == snap;
+            // let snapIndex = snapPointsArray.findIndex(div => div.isEqualNode(snap));
+            let snapIndex = snapPointsArray.findIndex(isSnap);
             let position = snapPoints[snapIndex].getBoundingClientRect();
             positions[snapIndex] = { 'x': position.x, 'y': position.y };
-            snapPoints[snapIndex].style.backgroundColor = "blue";
             if (piece.classList.contains('rotated')) {
                 position = snapPoints[snapIndex+7].getBoundingClientRect();
                 positions[snapIndex+7] = { 'x': position.x, 'y': position.y };
-                snapPoints[snapIndex+7].style.backgroundColor = "blue";
             } else {
                 position = snapPoints[snapIndex+1].getBoundingClientRect();
                 positions[snapIndex+1] = { 'x': position.x, 'y': position.y };
-                snapPoints[snapIndex+1].style.backgroundColor = "blue";
             }
             // Delete piece
             deletePiece(piece);
