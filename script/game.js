@@ -167,7 +167,6 @@ export default (() => {
             let piece = event.target.closest('.piece');
             let snap = piece.closest('.snap-point');
             let snapPointsArray = Array.from(snapPoints);
-            // todo encontrar forma de que diferencie el nodo correctamente
             const isSnap = (element) => element == snap;
             // let snapIndex = snapPointsArray.findIndex(div => div.isEqualNode(snap));
             let snapIndex = snapPointsArray.findIndex(isSnap);
