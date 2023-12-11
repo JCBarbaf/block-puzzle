@@ -3,9 +3,9 @@
 }
 
 body {
-  background-color: rgb(198, 198, 235);
   font-family: Arial, Helvetica, sans-serif;
   overflow: hidden;
+  background: rgb(41, 160, 226) url(../img/pattern.png);
 }
 
 a {
@@ -68,14 +68,16 @@ a {
 }
 
 .piece-container {
-  background-color: rgb(188, 188, 216);
+  background-color: rgb(116, 175, 207);
   width: 221.4285714286px;
   height: 135.7142857143px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
-  border: 5px solid rgba(0, 0, 0, 0.2);
+}
+.piece-container header {
+  border-bottom: 5px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 }
 
 .piece {
@@ -119,7 +121,7 @@ a {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  background-color: rgb(188, 188, 216);
+  background-color: rgb(116, 175, 207);
   border-radius: 50px;
   border: 5px solid rgba(0, 0, 0, 0.2);
 }

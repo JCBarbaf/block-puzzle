@@ -1,5 +1,5 @@
-$body-color: rgb(198, 198, 235);
-$container-color: rgb(188, 188, 216);
+$body-color: rgb(41, 160, 226);
+$container-color: rgb(116, 175, 207);
 $square-color: rgb(1, 187, 248);
 $piece-color: rgb(36, 161, 36);
 $placed-color: rgb(202, 140, 25);
@@ -13,9 +13,9 @@ $border: 5px solid rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
 }
 body {
-    background-color: $body-color;
     font-family: $font;
     overflow: hidden;
+    background: $body-color url(../img/pattern.png);
 }
 a {
     color: inherit;
@@ -81,8 +81,10 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
-    border: $border;
+    header {
+        border-bottom: $border;
+        border-radius: 5px;
+    }
 }
 .piece {
     background-color: $piece-color;

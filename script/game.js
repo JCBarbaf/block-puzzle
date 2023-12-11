@@ -80,7 +80,7 @@ export default (() => {
             squares[i].classList.add('active');
         }
     }
-    // SAve the positions of the sanp-points
+    // Save the positions of the sanp-points
     for (let i = 0; i < squares.length; i++) {
         if (squares[i].classList.contains('active')) {
             let position = snapPoints[i].getBoundingClientRect();
@@ -89,10 +89,12 @@ export default (() => {
             positions[i] = null;
         }
     }
+    // rotate piece on right click
     const rotatePiece = (event) => {
         event.preventDefault();
         pieceClone.classList.toggle('rotated');
     };
+    //todo cancel piece following
     const findSnap = () => {
         pieceClone.classList.remove('clone');
         let mouseRect = mouseFollower.getBoundingClientRect();
