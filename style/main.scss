@@ -1,5 +1,7 @@
 $body-color: rgb(41, 160, 226);
 $container-color: rgb(116, 175, 207);
+$header-color: scale-color($container-color, $lightness: -20%);
+$font-color: scale-color($container-color, $lightness: +40%);
 $square-color: rgb(1, 187, 248);
 $piece-color: rgb(36, 161, 36);
 $placed-color: rgb(202, 140, 25);
@@ -9,6 +11,7 @@ $piece-size: $map-size/7;
 $snap-size: 20px;
 $inside-margin: 30;
 $border: 5px solid rgba(0, 0, 0, 0.2);
+$shadow: 5px 5px 0 0 rgba(0, 0, 0, 0.40);
 *{
     box-sizing: border-box;
 }
@@ -44,21 +47,6 @@ a {
         transform-origin: 25% 50%;
     }
 }
-.map {
-    width: $map-size;
-    height: $map-size;
-    margin: 2% auto;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(7, 1fr);
-    .square {
-        visibility: hidden;
-        background-color: $square-color;
-    }
-    .active {
-        visibility: visible;
-    }
-}
 .piece,.square {
     border: 5px solid rgba(0, 0, 0, 0.1);
     display: flex;
@@ -73,23 +61,71 @@ a {
         align-items: center;
     }
 }
+main {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
 .piece-container {
+    width: 50%;
     background-color: $container-color;
-    $container-margin: 50;
-    width: ($piece-size*2) + $container-margin;
-    height: $piece-size + $container-margin;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: auto;
+    box-shadow: $shadow;
     header {
+        background-color: $header-color;
         border-bottom: $border;
-        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $font-color;
+        font-size: 1.5rem;
+    }
+    .piece-counter {
+        margin: 5% 0;
+    }
+    .piece {
+        margin: 10% auto;
+    }
+}
+.map-container {
+    width: 90%;
+    background-color: $container-color;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: auto;
+    box-shadow: 10px 10px 0 0 rgba(0, 0, 0, 0.40);
+    header {
+        background-color: $header-color;
+        color: $font-color;
+        border-bottom: $border;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.5rem;
+        padding: 1% 5%;
+    }
+}
+.map {
+    width: $map-size;
+    height: $map-size;
+    margin: 7% auto;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    .square {
+        visibility: hidden;
+        background-color: $square-color;
+    }
+    .active {
+        visibility: visible;
     }
 }
 .piece {
     background-color: $piece-color;
     width: $piece-size*2;
     height: $piece-size;
+    cursor: pointer;
     div {
         width: ($piece-size*2)-$inside-margin;
     }
@@ -119,28 +155,37 @@ a {
     }
 }
 .modal {
-    width: 40%;
-    height: 30%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    width: 20%;
+    height: 20%;
     background-color: $container-color;
     border-radius: 50px;
-    border: $border;
+    overflow: hidden;
     .modal-title {
-        width: 100%;
+        background-color: $header-color;
         font-size: 3rem;
         text-align: center;
+        border-bottom: $border;
+        margin: 0;
+        padding: 2% 0;
     }
     a {
-        background-color: teal;
-        border: $border;
+        display: block;
+        width: 30%;
+        height: 20%;
+        background-color: $header-color;
         border-width: 3px;
         padding: 1%;
-        border-radius: 40px;
+        border-radius: 15px;
+        margin: 10% auto;
+        border: $border;
+        border-width: 3px;
+        color: $font-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         &:hover {
             transform: scale(1.1);
+            filter: brightness(1.1);
         }
     }
 }
