@@ -1,6 +1,7 @@
 $body-color: rgb(41, 160, 226);
 $primary-color: rgb(116, 175, 207);
-$header-color: scale-color($primary-color, $lightness: -20%);
+$secondary-color: scale-color($primary-color, $lightness: -20%);
+$grey: scale-color($primary-color, $lightness: -60%);
 $white: scale-color($primary-color, $lightness: +40%);
 $black: scale-color($primary-color, $lightness: -80%);
 $square-color: rgb(1, 187, 248);
@@ -95,7 +96,7 @@ main {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: $header-color;
+        background-color: $secondary-color;
         color: $white;
         border-bottom: $border;
         font-size: 1.5rem;
@@ -119,7 +120,7 @@ main {
         justify-content: space-between;
         align-items: center;
         padding: 1% 5%;
-        background-color: $header-color;
+        background-color: $secondary-color;
         color: $white;
         border-bottom: $border;
         font-size: 1.5rem;
@@ -251,6 +252,11 @@ main {
     background-color: rgba(0, 0, 0, 0.3);
     &.active {
         visibility: visible;
+        .modal {
+            // transform: scale(1);
+            // transform: translateY(0);
+            animation: drop-down 0.5s ease-in-out forwards;
+        }
     }
     &.win {
         .modal {
@@ -265,25 +271,24 @@ main {
     }
 }
 .modal {
+    position: relative;
     overflow: hidden;
     background-color: $primary-color;
     border-radius: 50px;
+    // transform: scale(0);
+    // transform: translateY(-100vh);
+    transition: transform 0.15s ease-in;
+    svg {
+        width: 50px;
+    }
     .modal-title {
         margin: 0;
         padding: 2% 0;
-        background-color: $header-color;
+        background-color: $secondary-color;
+        color: $white;
         border-bottom: $border;
         font-size: 3rem;
         text-align: center;
-    }
-    .slider {
-        display: flex;
-        justify-content: center;
-        gap: 5%;
-        margin: 10% 0;
-        input {
-            width: 50%;
-        }
     }
     .buttons {
         display: flex;
@@ -298,7 +303,7 @@ main {
         justify-content: center;
         align-items: center;
         padding: 2%;
-        background-color: $header-color;
+        background-color: $secondary-color;
         color: $white;
         // border: $border;
         // border-width: 3px;
@@ -311,9 +316,81 @@ main {
             filter: brightness(1.1);
         }
     }
+    .close-icon {
+        width: 5%;
+        position: absolute;
+        top: 5%;
+        right: 5%;
+        cursor: pointer;
+        * {
+            fill: $white;
+        }
+    }
 }
 .settings {
-    svg {
-        width: 50px;
+    .slider {
+        display: flex;
+        justify-content: center;
+        gap: 5%;
+        margin: 10% 0;
+        svg * {
+            fill: $grey;
+        }
+    }
+    input {
+        width: 50%;
+    }
+}
+input[type="range"] {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    background: none;
+    &::-webkit-slider-runnable-track {
+        height: 0.5rem;
+        background: $grey;
+        border-radius: 50px;
+    }
+    &::-moz-range-track {
+        height: 0.5rem;
+        background: $grey;
+        border-radius: 50px;
+    }
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Override default look */
+        appearance: none;
+        width: 1.75rem;    
+        height: 1.75rem;
+        background-color: scale-color($primary-color, $lightness: -40%);
+        border: $border;
+        border-color: $grey;
+        border-radius: 50px;
+        cursor: pointer;
+        transform: translateY(-35%);
+    }
+    &::-moz-range-thumb {
+        -webkit-appearance: none; /* Override default look */
+        appearance: none;
+        width: 1.75rem;    
+        height: 1.75rem;
+        background-color: scale-color($primary-color, $lightness: -40%);
+        border: $border;
+        border-color: $grey;
+        border-radius: 50px;
+        cursor: pointer;
+        transform: translateY(-35%);
+    }
+}
+@keyframes drop-down {
+    0% {
+        transform: translateY(-100vw);
+    }
+    70% {
+        transform: translateY(1vw);
+    }
+    80% {
+        transform: translateY(-1vw);
+    }
+    100% {
+        transform: translateY(0);
     }
 }

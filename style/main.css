@@ -252,6 +252,9 @@ main {
 .modal-container.active {
   visibility: visible;
 }
+.modal-container.active .modal {
+  animation: drop-down 0.5s ease-in-out forwards;
+}
 .modal-container.win .modal {
   width: 20%;
   height: 20%;
@@ -261,26 +264,23 @@ main {
 }
 
 .modal {
+  position: relative;
   overflow: hidden;
   background-color: rgb(116, 175, 207);
   border-radius: 50px;
+  transition: transform 0.15s ease-in;
+}
+.modal svg {
+  width: 50px;
 }
 .modal .modal-title {
   margin: 0;
   padding: 2% 0;
   background-color: #4493be;
+  color: #accfe2;
   border-bottom: 5px solid rgba(0, 0, 0, 0.2);
   font-size: 3rem;
   text-align: center;
-}
-.modal .slider {
-  display: flex;
-  justify-content: center;
-  gap: 5%;
-  margin: 10% 0;
-}
-.modal .slider input {
-  width: 50%;
 }
 .modal .buttons {
   display: flex;
@@ -305,7 +305,83 @@ main {
   transform: scale(1.1);
   filter: brightness(1.1);
 }
+.modal .close-icon {
+  width: 5%;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  cursor: pointer;
+}
+.modal .close-icon * {
+  fill: #accfe2;
+}
 
-.settings svg {
-  width: 50px;
+.settings .slider {
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+  margin: 10% 0;
+}
+.settings .slider svg * {
+  fill: #214a60;
+}
+.settings input {
+  width: 50%;
+}
+
+input[type=range] {
+  -webkit-appearance: none; /* Override default look */
+  -moz-appearance: none;
+       appearance: none;
+  background: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  height: 0.5rem;
+  background: #214a60;
+  border-radius: 50px;
+}
+input[type=range]::-moz-range-track {
+  height: 0.5rem;
+  background: #214a60;
+  border-radius: 50px;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 1.75rem;
+  height: 1.75rem;
+  background-color: #326f90;
+  border: 5px solid rgba(0, 0, 0, 0.2);
+  border-color: #214a60;
+  border-radius: 50px;
+  cursor: pointer;
+  transform: translateY(-35%);
+}
+input[type=range]::-moz-range-thumb {
+  -webkit-appearance: none; /* Override default look */
+  -moz-appearance: none;
+       appearance: none;
+  width: 1.75rem;
+  height: 1.75rem;
+  background-color: #326f90;
+  border: 5px solid rgba(0, 0, 0, 0.2);
+  border-color: #214a60;
+  border-radius: 50px;
+  cursor: pointer;
+  transform: translateY(-35%);
+}
+
+@keyframes drop-down {
+  0% {
+    transform: translateY(-100vw);
+  }
+  70% {
+    transform: translateY(1vw);
+  }
+  80% {
+    transform: translateY(-1vw);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }/*# sourceMappingURL=main.css.map */

@@ -71,7 +71,7 @@ export default (() => {
     let positions = [{}];
     // let randomIndex = Math.floor(Math.random() * templates.length);
     let randomIndex = Math.floor(Math.random() * ((templates.length-1) - 2 + 1) + 2);
-    // randomIndex = 0;
+    randomIndex = 1;
     let counter = templates[randomIndex]['piecesUsed'];
     counterHandler();
     // Generate map using the template
