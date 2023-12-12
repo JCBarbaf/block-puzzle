@@ -1,7 +1,8 @@
 $body-color: rgb(41, 160, 226);
-$container-color: rgb(116, 175, 207);
-$header-color: scale-color($container-color, $lightness: -20%);
-$font-color: scale-color($container-color, $lightness: +40%);
+$primary-color: rgb(116, 175, 207);
+$header-color: scale-color($primary-color, $lightness: -20%);
+$white: scale-color($primary-color, $lightness: +40%);
+$black: scale-color($primary-color, $lightness: -80%);
 $square-color: rgb(1, 187, 248);
 $piece-color: rgb(36, 161, 36);
 $placed-color: rgb(202, 140, 25);
@@ -16,13 +17,17 @@ $shadow: 5px 5px 0 0 rgba(0, 0, 0, 0.40);
     box-sizing: border-box;
 }
 body {
-    font-family: $font;
     overflow: hidden;
     background: $body-color url(../img/pattern.png);
+    font-family: $font;
 }
 a {
     color: inherit;
     text-decoration: none;
+}
+main {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
 }
 .mouse-follower {
     position: relative;
@@ -34,97 +39,37 @@ a {
     }
 }
 .snap-point {
-    pointer-events: none;
     // background-color: red;
     width: $snap-size;
     height: $snap-size;
     position: relative;
+    pointer-events: none;
     .piece {
-        pointer-events: all;
         position: absolute;
         top: ($piece-size/2-$snap-size/2)*-1;
         left: ($piece-size/2-$snap-size/2)*-1;
+        pointer-events: all;
         transform-origin: 25% 50%;
     }
 }
 .piece,.square {
-    border: 5px solid rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 5px solid rgba(0, 0, 0, 0.1);
     &>div {
-        background-color: rgba(255, 255, 255, 0.2);
         width: $piece-size - $inside-margin;
         height: $piece-size - $inside-margin;
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-}
-main {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-}
-.piece-container {
-    width: 50%;
-    background-color: $container-color;
-    border-radius: 20px;
-    overflow: hidden;
-    margin: auto;
-    box-shadow: $shadow;
-    header {
-        background-color: $header-color;
-        border-bottom: $border;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: $font-color;
-        font-size: 1.5rem;
-    }
-    .piece-counter {
-        margin: 5% 0;
-    }
-    .piece {
-        margin: 10% auto;
-    }
-}
-.map-container {
-    width: 90%;
-    background-color: $container-color;
-    border-radius: 20px;
-    overflow: hidden;
-    margin: auto;
-    box-shadow: 10px 10px 0 0 rgba(0, 0, 0, 0.40);
-    header {
-        background-color: $header-color;
-        color: $font-color;
-        border-bottom: $border;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 1.5rem;
-        padding: 1% 5%;
-    }
-}
-.map {
-    width: $map-size;
-    height: $map-size;
-    margin: 7% auto;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(7, 1fr);
-    .square {
-        visibility: hidden;
-        background-color: $square-color;
-    }
-    .active {
-        visibility: visible;
+        background-color: rgba(255, 255, 255, 0.2);
     }
 }
 .piece {
-    background-color: $piece-color;
     width: $piece-size*2;
     height: $piece-size;
+    background-color: $piece-color;
     cursor: pointer;
     div {
         width: ($piece-size*2)-$inside-margin;
@@ -139,53 +84,236 @@ main {
         visibility: hidden;
     }
 }
+.piece-container {
+    width: 50%;
+    overflow: hidden;
+    margin: auto;
+    background-color: $primary-color;
+    border-radius: 20px;
+    box-shadow: $shadow;
+    header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $header-color;
+        color: $white;
+        border-bottom: $border;
+        font-size: 1.5rem;
+    }
+    .piece-counter {
+        margin: 5% 0;
+    }
+    .piece {
+        margin: 10% auto;
+    }
+}
+.map-container {
+    width: 90%;
+    overflow: hidden;
+    margin: auto;
+    background-color: $primary-color;
+    border-radius: 20px;
+    box-shadow: 10px 10px 0 0 rgba(0, 0, 0, 0.40);
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1% 5%;
+        background-color: $header-color;
+        color: $white;
+        border-bottom: $border;
+        font-size: 1.5rem;
+    }
+}
+.map {
+    width: $map-size;
+    height: $map-size;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    margin: 7% auto;
+    .square {
+        visibility: hidden;
+        background-color: $square-color;
+    }
+    .active {
+        visibility: visible;
+    }
+}
+.help-menu {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    bottom: 5%;
+    right: 3%;
+    overflow: hidden;
+    background-color: $primary-color;
+    color: $black;
+    border: $border;
+    border-radius: 50px;
+    box-shadow: $shadow;
+    transition: 0.3s ease-in;
+    transition-property: width, height;
+    .help-icon {
+        width: 80%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        cursor: pointer;
+    }
+    svg * {
+        fill: rgba(0, 0, 0, 0.2);
+    }
+    &.active {
+        width: 400px;
+        height: 500px;
+        .help-content {
+            visibility: visible;
+        }
+        .help-icon {
+            pointer-events: none;
+        }
+    }
+}
+.help-menu:not(.active):hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+.help-content {
+    visibility: hidden;
+    margin: 1%;
+    h3 {
+        text-align: center;
+    }
+    ul {
+        margin: 10% 0;
+        list-style: square;
+    }
+    li {
+        margin-bottom: 10%;
+    }
+    .close-icon {
+        width: 8%;
+        position: absolute;
+        top: 3%;
+        right: 5%;
+        cursor: pointer;
+    }
+}
+.close-icon:hover {
+    transform: scale(1.1);
+}
+.settings-button {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    top: 5%;
+    right: 3%;
+    overflow: hidden;
+    background-color: $primary-color;
+    color: $black;
+    border: $border;
+    border-radius: 50px;
+    box-shadow: $shadow;
+    transition: 0.3s ease-in;
+    transition-property: width, height;
+    svg {
+        width: 80%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        cursor: pointer;
+        * {
+            fill: rgba(0, 0, 0, 0.2);
+        }
+    }
+    &:hover {
+        transform: scale(1.1);
+        filter: brightness(1.1);
+    }
+}
 .modal-container {
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+    visibility: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.3);
-    visibility: hidden;
     &.active {
         visibility: visible;
     }
+    &.win {
+        .modal {
+            width: 20%;
+            height: 20%;
+        }
+    }
+    &.settings {
+        .modal {
+            width: 30%;
+        }
+    }
 }
 .modal {
-    width: 20%;
-    height: 20%;
-    background-color: $container-color;
-    border-radius: 50px;
     overflow: hidden;
+    background-color: $primary-color;
+    border-radius: 50px;
     .modal-title {
-        background-color: $header-color;
-        font-size: 3rem;
-        text-align: center;
-        border-bottom: $border;
         margin: 0;
         padding: 2% 0;
+        background-color: $header-color;
+        border-bottom: $border;
+        font-size: 3rem;
+        text-align: center;
+    }
+    .slider {
+        display: flex;
+        justify-content: center;
+        gap: 5%;
+        margin: 10% 0;
+        input {
+            width: 50%;
+        }
+    }
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 5%;
+        margin: 5% 0;
     }
     a {
+        // width: 30%;
         display: block;
-        width: 30%;
-        height: 20%;
-        background-color: $header-color;
-        border-width: 3px;
-        padding: 1%;
-        border-radius: 15px;
-        margin: 10% auto;
-        border: $border;
-        border-width: 3px;
-        color: $font-color;
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 2%;
+        background-color: $header-color;
+        color: $white;
+        // border: $border;
+        // border-width: 3px;
+        border-radius: 15px;
+        svg * {
+            fill: $primary-color;
+        }
         &:hover {
             transform: scale(1.1);
             filter: brightness(1.1);
         }
+    }
+}
+.settings {
+    svg {
+        width: 50px;
     }
 }
