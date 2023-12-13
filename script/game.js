@@ -3,8 +3,11 @@ export default (() => {
     const mouseFollower = document.querySelector('.mouse-follower');
     const snapPoints = document.querySelectorAll('.map .square .snap-point');
     const piece = document.querySelector('.piece');
+    const pieceRectangle = piece.getBoundingClientRect();
+    const piecePosition = { 'x': pieceRectangle.x, 'y': pieceRectangle.y };
     const counterDisplay = document.querySelector('.piece-counter');
     const winModal = document.querySelector('.modal-container.win');
+    const reach = 40;
     let pieceClone;
     let templates = [
         {
@@ -71,7 +74,7 @@ export default (() => {
     let positions = [{}];
     // let randomIndex = Math.floor(Math.random() * templates.length);
     let randomIndex = Math.floor(Math.random() * ((templates.length-1) - 2 + 1) + 2);
-    randomIndex = 1;
+    // randomIndex = 0;
     let counter = templates[randomIndex]['piecesUsed'];
     counterHandler();
     // Generate map using the template
@@ -94,10 +97,14 @@ export default (() => {
         event.preventDefault();
         pieceClone.classList.toggle('rotated');
     };
-    //todo cancel piece following
     const findSnap = () => {
         pieceClone.classList.remove('clone');
         let mouseRect = mouseFollower.getBoundingClientRect();
+        // Remove the piece if its close to the container
+        let pieceDistance = calculateDistance(piecePosition,{ x: mouseRect.x, y: mouseRect.y });
+        if (pieceDistance < 100) {
+            pieceClone.remove();
+        }
         // Calculate the closest distance available
         let closestDistance = null;
         let closestDistanceIndex = null;
@@ -116,7 +123,7 @@ export default (() => {
             }
         });
         // Check if the closest distance is in reach
-        if (closestDistance < 40) {
+        if (closestDistance < reach) {
             // Check if the piece fits
             if (pieceClone.classList.contains('rotated')) {
                 if (positions[closestDistanceIndex + 7]) {
