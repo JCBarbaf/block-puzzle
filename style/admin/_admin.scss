@@ -1,0 +1,11 @@
+.save {
+    width: 3rem;
+    cursor: pointer;
+    * {
+        fill: $white;
+    }
+    &:hover {
+        transform: scale(1.1);
+        filter: brightness(1.1);
+    }
+}

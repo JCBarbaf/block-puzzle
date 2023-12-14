@@ -211,8 +211,11 @@ export default (() => {
     function counterHandler() {
         counterDisplay.innerHTML = `${counter} pieces`;
         if (counter == 0) {
-            console.log('hola');
-            winModal.classList.add('active');
+            win();
         }
+    }
+    function win() {
+        winModal.classList.add('active');
+        document.dispatchEvent(new CustomEvent('win'));
     }
 })();
