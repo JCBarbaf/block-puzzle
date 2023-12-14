@@ -1,0 +1,14 @@
+@keyframes drop-down {
+    0% {
+        transform: translateY(-100vw);
+    }
+    70% {
+        transform: translateY(1vw);
+    }
+    80% {
+        transform: translateY(-1vw);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}

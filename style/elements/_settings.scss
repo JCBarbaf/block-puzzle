@@ -1,0 +1,88 @@
+.settings-button {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    top: 5%;
+    right: 3%;
+    overflow: hidden;
+    background-color: $primary-color;
+    color: $black;
+    border: $border;
+    border-radius: 50px;
+    box-shadow: $shadow;
+    transition: 0.3s ease-in;
+    transition-property: width, height;
+    svg {
+        width: 80%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        cursor: pointer;
+        * {
+            fill: rgba(0, 0, 0, 0.2);
+        }
+    }
+    &:hover {
+        transform: scale(1.1);
+        filter: brightness(1.1);
+    }
+}
+.settings {
+    .modal {
+        width: 30%;
+    }
+    .slider {
+        display: flex;
+        justify-content: center;
+        gap: 5%;
+        margin: 10% 0;
+        svg * {
+            fill: $grey;
+        }
+    }
+    input {
+        width: 50%;
+    }
+}
+input[type="range"] {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    background: none;
+    &::-webkit-slider-runnable-track {
+        height: 0.5rem;
+        background: $grey;
+        border-radius: 50px;
+    }
+    &::-moz-range-track {
+        height: 0.5rem;
+        background: $grey;
+        border-radius: 50px;
+    }
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Override default look */
+        appearance: none;
+        width: 1.75rem;    
+        height: 1.75rem;
+        background-color: scale-color($primary-color, $lightness: -40%);
+        border: $border;
+        border-color: $grey;
+        border-radius: 50px;
+        cursor: pointer;
+        transform: translateY(-35%);
+    }
+    &::-moz-range-thumb {
+        -webkit-appearance: none; /* Override default look */
+        appearance: none;
+        width: 1.75rem;    
+        height: 1.75rem;
+        background-color: scale-color($primary-color, $lightness: -40%);
+        border: $border;
+        border-color: $grey;
+        border-radius: 50px;
+        cursor: pointer;
+        transform: translateY(-35%);
+    }
+}

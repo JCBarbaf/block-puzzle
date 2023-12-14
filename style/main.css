@@ -1,16 +1,7 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
   overflow: hidden;
   background: rgb(41, 160, 226) url(../img/pattern.png);
   font-family: Arial, Helvetica, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
 }
 
 main {
@@ -18,13 +9,13 @@ main {
   grid-template-columns: 1fr 2fr 1fr;
 }
 
-.mouse-follower {
-  position: relative;
-  top: 0;
-  bottom: 0;
+a {
+  color: inherit;
+  text-decoration: none;
 }
-.mouse-follower .piece {
-  z-index: 1000;
+
+* {
+  box-sizing: border-box;
 }
 
 .snap-point {
@@ -56,47 +47,13 @@ main {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-.piece {
-  width: 171.4285714286px;
-  height: 85.7142857143px;
-  background-color: rgb(36, 161, 36);
-  cursor: pointer;
+.mouse-follower {
+  position: relative;
+  top: 0;
+  bottom: 0;
 }
-.piece div {
-  width: 141.4285714286px;
-}
-.piece.placed {
-  background-color: rgb(202, 140, 25);
-}
-.piece.rotated {
-  transform: rotate(90deg);
-}
-.piece.original.hidden {
-  visibility: hidden;
-}
-
-.piece-container {
-  width: 50%;
-  overflow: hidden;
-  margin: auto;
-  background-color: rgb(116, 175, 207);
-  border-radius: 20px;
-  box-shadow: 5px 5px 0 0 rgba(0, 0, 0, 0.4);
-}
-.piece-container header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #4493be;
-  color: #accfe2;
-  border-bottom: 5px solid rgba(0, 0, 0, 0.2);
-  font-size: 1.5rem;
-}
-.piece-container .piece-counter {
-  margin: 5% 0;
-}
-.piece-container .piece {
-  margin: 10% auto;
+.mouse-follower .piece {
+  z-index: 1000;
 }
 
 .map-container {
@@ -132,6 +89,49 @@ main {
 }
 .map .active {
   visibility: visible;
+}
+
+.piece-container {
+  width: 50%;
+  overflow: hidden;
+  margin: auto;
+  background-color: rgb(116, 175, 207);
+  border-radius: 20px;
+  box-shadow: 5px 5px 0 0 rgba(0, 0, 0, 0.4);
+}
+.piece-container header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4493be;
+  color: #accfe2;
+  border-bottom: 5px solid rgba(0, 0, 0, 0.2);
+  font-size: 1.5rem;
+}
+.piece-container .piece-counter {
+  margin: 5% 0;
+}
+.piece-container .piece {
+  margin: 10% auto;
+}
+
+.piece {
+  width: 171.4285714286px;
+  height: 85.7142857143px;
+  background-color: rgb(36, 161, 36);
+  cursor: pointer;
+}
+.piece div {
+  width: 141.4285714286px;
+}
+.piece.placed {
+  background-color: rgb(202, 140, 25);
+}
+.piece.rotated {
+  transform: rotate(90deg);
+}
+.piece.original.hidden {
+  visibility: hidden;
 }
 
 .help-menu {
@@ -204,39 +204,6 @@ main {
   transform: scale(1.1);
 }
 
-.settings-button {
-  width: 60px;
-  height: 60px;
-  position: fixed;
-  top: 5%;
-  right: 3%;
-  overflow: hidden;
-  background-color: rgb(116, 175, 207);
-  color: #112530;
-  border: 5px solid rgba(0, 0, 0, 0.2);
-  border-radius: 50px;
-  box-shadow: 5px 5px 0 0 rgba(0, 0, 0, 0.4);
-  transition: 0.3s ease-in;
-  transition-property: width, height;
-}
-.settings-button svg {
-  width: 80%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  cursor: pointer;
-}
-.settings-button svg * {
-  fill: rgba(0, 0, 0, 0.2);
-}
-.settings-button:hover {
-  transform: scale(1.1);
-  filter: brightness(1.1);
-}
-
 .modal-container {
   position: fixed;
   top: 0;
@@ -254,13 +221,6 @@ main {
 }
 .modal-container.active .modal {
   animation: drop-down 0.5s ease-in-out forwards;
-}
-.modal-container.win .modal {
-  width: 20%;
-  height: 20%;
-}
-.modal-container.settings .modal {
-  width: 30%;
 }
 
 .modal {
@@ -316,6 +276,42 @@ main {
   fill: #accfe2;
 }
 
+.settings-button {
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  top: 5%;
+  right: 3%;
+  overflow: hidden;
+  background-color: rgb(116, 175, 207);
+  color: #112530;
+  border: 5px solid rgba(0, 0, 0, 0.2);
+  border-radius: 50px;
+  box-shadow: 5px 5px 0 0 rgba(0, 0, 0, 0.4);
+  transition: 0.3s ease-in;
+  transition-property: width, height;
+}
+.settings-button svg {
+  width: 80%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  cursor: pointer;
+}
+.settings-button svg * {
+  fill: rgba(0, 0, 0, 0.2);
+}
+.settings-button:hover {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
+.settings .modal {
+  width: 30%;
+}
 .settings .slider {
   display: flex;
   justify-content: center;
@@ -369,6 +365,11 @@ input[type=range]::-moz-range-thumb {
   border-radius: 50px;
   cursor: pointer;
   transform: translateY(-35%);
+}
+
+.win .modal {
+  width: 20%;
+  height: 20%;
 }
 
 @keyframes drop-down {

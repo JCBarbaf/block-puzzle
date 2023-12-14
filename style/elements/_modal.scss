@@ -1,0 +1,77 @@
+.modal-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    &.active {
+        visibility: visible;
+        .modal {
+            // transform: scale(1);
+            // transform: translateY(0);
+            animation: drop-down 0.5s ease-in-out forwards;
+        }
+    }
+}
+.modal {
+    position: relative;
+    overflow: hidden;
+    background-color: $primary-color;
+    border-radius: 50px;
+    // transform: scale(0);
+    // transform: translateY(-100vh);
+    transition: transform 0.15s ease-in;
+    svg {
+        width: 50px;
+    }
+    .modal-title {
+        margin: 0;
+        padding: 2% 0;
+        background-color: $secondary-color;
+        color: $white;
+        border-bottom: $border;
+        font-size: 3rem;
+        text-align: center;
+    }
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 5%;
+        margin: 5% 0;
+    }
+    a {
+        // width: 30%;
+        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2%;
+        background-color: $secondary-color;
+        color: $white;
+        // border: $border;
+        // border-width: 3px;
+        border-radius: 15px;
+        svg * {
+            fill: $primary-color;
+        }
+        &:hover {
+            transform: scale(1.1);
+            filter: brightness(1.1);
+        }
+    }
+    .close-icon {
+        width: 5%;
+        position: absolute;
+        top: 5%;
+        right: 5%;
+        cursor: pointer;
+        * {
+            fill: $white;
+        }
+    }
+}

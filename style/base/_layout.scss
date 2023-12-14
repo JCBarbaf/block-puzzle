@@ -1,0 +1,9 @@
+body {
+    overflow: hidden;
+    background: $body-color url(../img/pattern.png);
+    font-family: $font;
+}
+main {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
