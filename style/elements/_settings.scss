@@ -1,17 +1,14 @@
-.settings-button {
-    width: 60px;
-    height: 60px;
+.settings-button  {
+    width: 4rem;
+    height: 4rem;
     position: fixed;
     top: 5%;
     right: 3%;
-    overflow: hidden;
     background-color: $primary-color;
-    color: $black;
     border: $border;
-    border-radius: 50px;
+    border-radius: 5rem;
+    border-color: $secondary-color;
     box-shadow: $shadow;
-    transition: 0.3s ease-in;
-    transition-property: width, height;
     svg {
         width: 80%;
         position: absolute;
@@ -22,7 +19,7 @@
         margin: auto;
         cursor: pointer;
         * {
-            fill: rgba(0, 0, 0, 0.2);
+            fill: $secondary-color;
         }
     }
     &:hover {
@@ -54,12 +51,12 @@ input[type="range"] {
     &::-webkit-slider-runnable-track {
         height: 0.5rem;
         background: $grey;
-        border-radius: 50px;
+        border-radius: 5rem;
     }
     &::-moz-range-track {
         height: 0.5rem;
         background: $grey;
-        border-radius: 50px;
+        border-radius: 5rem;
     }
     &::-webkit-slider-thumb {
         -webkit-appearance: none; /* Override default look */
@@ -69,7 +66,7 @@ input[type="range"] {
         background-color: scale-color($primary-color, $lightness: -40%);
         border: $border;
         border-color: $grey;
-        border-radius: 50px;
+        border-radius: 5rem;
         cursor: pointer;
         transform: translateY(-35%);
     }
@@ -81,7 +78,7 @@ input[type="range"] {
         background-color: scale-color($primary-color, $lightness: -40%);
         border: $border;
         border-color: $grey;
-        border-radius: 50px;
+        border-radius: 5rem;
         cursor: pointer;
         transform: translateY(-35%);
     }

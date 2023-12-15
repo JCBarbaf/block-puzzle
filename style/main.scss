@@ -1,6 +1,9 @@
 @charset "utf-8";
+@import "helpers/font-face";
 @import "helpers/variables";
-@import "base/layout";
+@import "layouts/title-screen";
+@import "layouts/level-select";
+@import "layouts/level";
 @import "base/general-style";
 @import "elements/mouse-follower";
 @import "elements/map";

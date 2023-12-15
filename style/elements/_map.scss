@@ -3,15 +3,14 @@
     overflow: hidden;
     margin: auto;
     background-color: $primary-color;
-    border-radius: 20px;
-    box-shadow: 10px 10px 0 0 rgba(0, 0, 0, 0.40);
+    border-radius: 2rem;
+    box-shadow: 1rem 1rem 0 0 rgba(0, 0, 0, 0.4);
     header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 1% 5%;
         background-color: $secondary-color;
-        color: $white;
         border-bottom: $border;
         font-size: 1.5rem;
     }

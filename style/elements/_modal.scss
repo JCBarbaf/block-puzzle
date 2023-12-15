@@ -22,18 +22,15 @@
     position: relative;
     overflow: hidden;
     background-color: $primary-color;
-    border-radius: 50px;
-    // transform: scale(0);
-    // transform: translateY(-100vh);
+    border-radius: 2rem;
     transition: transform 0.15s ease-in;
     svg {
-        width: 50px;
+        width: 3rem;
     }
     .modal-title {
         margin: 0;
         padding: 2% 0;
         background-color: $secondary-color;
-        color: $white;
         border-bottom: $border;
         font-size: 3rem;
         text-align: center;
@@ -52,10 +49,7 @@
         align-items: center;
         padding: 2%;
         background-color: $secondary-color;
-        color: $white;
-        // border: $border;
-        // border-width: 3px;
-        border-radius: 15px;
+        border-radius: 1rem;
         svg * {
             fill: $primary-color;
         }

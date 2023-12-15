@@ -1,5 +1,5 @@
 export default (() => {
-    let settingsButton = document.querySelector('.settings-button');
+    let settingsButton = document.querySelector('.settings-trigger');
     let settingsModal = document.querySelector('.modal-container.settings');
     settingsButton?.addEventListener('click', () => {
         settingsModal?.classList.add('active');

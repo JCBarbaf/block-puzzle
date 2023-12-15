@@ -1,6 +1,6 @@
 .help-menu {
-    width: 60px;
-    height: 60px;
+    width: 4rem;
+    height: 4rem;
     position: fixed;
     bottom: 5%;
     right: 3%;
@@ -8,7 +8,8 @@
     background-color: $primary-color;
     color: $black;
     border: $border;
-    border-radius: 50px;
+    border-color: $secondary-color;
+    border-radius: 3rem;
     box-shadow: $shadow;
     transition: 0.3s ease-in;
     transition-property: width, height;
@@ -21,13 +22,14 @@
         right: 0;
         margin: auto;
         cursor: pointer;
+        z-index: 100;
     }
     svg * {
-        fill: rgba(0, 0, 0, 0.2);
+        fill: $secondary-color;
     }
     &.active {
-        width: 400px;
-        height: 500px;
+        width: 25rem;
+        height: 30rem;
         .help-content {
             visibility: visible;
         }
@@ -41,8 +43,10 @@
     filter: brightness(1.1);
 }
 .help-content {
+    position: relative;
     visibility: hidden;
     margin: 1%;
+    z-index: 200;
     h3 {
         text-align: center;
     }

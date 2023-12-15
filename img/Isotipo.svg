@@ -1,0 +1,27 @@
+<svg width="500" height="800" viewBox="0 0 500 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="27" y="477" width="146" height="296" fill="#CA8C19"/>
+<rect x="27" y="477" width="146" height="296" stroke="#CA8C19" stroke-width="4"/>
+<rect x="27" y="477" width="146" height="296" stroke="black" stroke-opacity="0.1" stroke-width="4"/>
+<rect x="51.2537" y="501.148" width="98.0002" height="247.674" fill="#CA8C19"/>
+<rect x="51.2537" y="501.148" width="98.0002" height="247.674" fill="white" fill-opacity="0.2"/>
+<rect x="323" y="327" width="146" height="296" transform="rotate(90 323 327)" fill="#CA8C19"/>
+<rect x="323" y="327" width="146" height="296" transform="rotate(90 323 327)" stroke="#CA8C19" stroke-width="4"/>
+<rect x="323" y="327" width="146" height="296" transform="rotate(90 323 327)" stroke="black" stroke-opacity="0.1" stroke-width="4"/>
+<rect x="298.852" y="351.253" width="98.0002" height="247.674" transform="rotate(90 298.852 351.253)" fill="#CA8C19"/>
+<rect x="298.852" y="351.253" width="98.0002" height="247.674" transform="rotate(90 298.852 351.253)" fill="white" fill-opacity="0.2"/>
+<rect x="473" y="27" width="146" height="296" transform="rotate(90 473 27)" fill="#CA8C19"/>
+<rect x="473" y="27" width="146" height="296" transform="rotate(90 473 27)" stroke="#CA8C19" stroke-width="4"/>
+<rect x="473" y="27" width="146" height="296" transform="rotate(90 473 27)" stroke="black" stroke-opacity="0.1" stroke-width="4"/>
+<rect x="448.852" y="51.2534" width="98.0002" height="247.674" transform="rotate(90 448.852 51.2534)" fill="#CA8C19"/>
+<rect x="448.852" y="51.2534" width="98.0002" height="247.674" transform="rotate(90 448.852 51.2534)" fill="white" fill-opacity="0.2"/>
+<rect x="473" y="473" width="146" height="296" transform="rotate(-180 473 473)" fill="#CA8C19"/>
+<rect x="473" y="473" width="146" height="296" transform="rotate(-180 473 473)" stroke="#CA8C19" stroke-width="4"/>
+<rect x="473" y="473" width="146" height="296" transform="rotate(-180 473 473)" stroke="black" stroke-opacity="0.1" stroke-width="4"/>
+<rect x="448.746" y="448.852" width="98.0002" height="247.674" transform="rotate(-180 448.746 448.852)" fill="#CA8C19"/>
+<rect x="448.746" y="448.852" width="98.0002" height="247.674" transform="rotate(-180 448.746 448.852)" fill="white" fill-opacity="0.2"/>
+<rect x="173" y="323" width="146" height="296" transform="rotate(-180 173 323)" fill="#CA8C19"/>
+<rect x="173" y="323" width="146" height="296" transform="rotate(-180 173 323)" stroke="#CA8C19" stroke-width="4"/>
+<rect x="173" y="323" width="146" height="296" transform="rotate(-180 173 323)" stroke="black" stroke-opacity="0.1" stroke-width="4"/>
+<rect x="148.746" y="298.852" width="98.0002" height="247.674" transform="rotate(-180 148.746 298.852)" fill="#CA8C19"/>
+<rect x="148.746" y="298.852" width="98.0002" height="247.674" transform="rotate(-180 148.746 298.852)" fill="white" fill-opacity="0.2"/>
+</svg>

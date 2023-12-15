@@ -1,0 +1,135 @@
+main.level-select {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.level-select-title {
+    width: 30%;
+    margin: 2% auto;
+    padding: 1%;
+    background-color: $secondary-color;
+    border-radius: 1rem;
+    box-shadow: $shadow;
+    text-align: center;
+}
+.levels {
+    width: 95%;
+    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 5%;
+    align-items: flex-start;
+}
+.level-box {
+    width: 15rem;
+    height: 15rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin-bottom: 3%;
+    background-color: $primary-color;
+    border-radius: 1.5rem;
+    box-shadow: $shadow;
+    cursor: pointer;
+    header {
+        padding: 0.1%;
+        background-color: $secondary-color;
+        border-bottom: $border;
+        font-size: 1rem;
+        text-align: center;
+    }
+    main {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+.miniature {
+    width: 9rem;
+    height: 9rem;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    div {
+        // visibility: hidden;
+        background-color: scale-color($square-color, $lightness: 10%);
+        border: $border;
+        border-width: 0.2rem;
+    }
+    .active {
+        visibility: visible;
+    }
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 1%;
+    padding-bottom: 2%;
+    button {
+        background-color: $secondary-color;
+        border-radius: 1rem;
+        height: 3rem;
+        box-shadow: $shadow;
+        &.active {
+            background-color: scale-color($secondary-color, $lightness: -20%);
+        }
+    }
+    .arrow {
+        width: 5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        svg {
+            width: 40%;
+            * {
+                fill: $primary-color;
+            }
+        }
+        &.left svg {
+            transform: scale(-1);
+        }
+        &:hover {
+            transform: scale(1.1);
+            filter: brightness(1.1);
+        }
+    }
+    .page {
+        width: 3rem;
+    }
+}
+.home {
+    width: 4rem;
+    height: 4rem;
+    position: fixed;
+    top: 5%;
+    right: 3%;
+    background-color: $primary-color;
+    border: $border;
+    border-radius: 5rem;
+    border-color: $secondary-color;
+    box-shadow: $shadow;
+    svg {
+        width: 80%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        cursor: pointer;
+        * {
+            fill: $secondary-color;
+        }
+    }
+    &:hover {
+        transform: scale(1.1);
+        filter: brightness(1.1);
+    }
+}

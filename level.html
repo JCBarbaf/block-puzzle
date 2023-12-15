@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pieces! - Level X</title>
+    <link rel="stylesheet" href="style/normalize.css">
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="shortcut icon" href="img/block-icon.svg" type="image/x-icon">
+    <script type="module" src="script/level.js"></script>
+</head>
+<body class="level">
+    <div class="mouse-follower snap-point"></div>
+    <main class="level">
+        <div class="piece-container">
+            <header>
+                <p class="piece-counter">12 pieces</p>
+            </header>
+            <div class="piece original"><div></div></div>
+        </div>
+        <div class="map-container">
+            <header>
+                <p class="level-counter">Level 1</p>
+                <p class="timer">00:00</p>
+            </header>
+            <div class="map">
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+                <div class="square"><div><div class="snap-point"></div></div></div>
+            </div>
+        </div>
+    </main>
+    
+    <div class="help-menu">
+        <svg class="help-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M39.8352 66.5109V65.1037C39.8629 60.275 40.2925 56.4258 41.124 53.5561C41.9832 50.6865 43.2304 48.3687 44.8656 46.6028C46.5009 44.8368 48.4687 43.2364 50.7691 41.8016C52.4875 40.6979 54.0257 39.5528 55.3838 38.3663C56.7419 37.1798 57.8228 35.8692 58.6266 34.4344C59.4303 32.9719 59.8322 31.344 59.8322 29.5504C59.8322 27.6465 59.3749 25.9772 58.4603 24.5423C57.5457 23.1075 56.3123 22.0038 54.7602 21.2312C53.2358 20.4586 51.5452 20.0723 49.6882 20.0723C47.8867 20.0723 46.1821 20.4724 44.5746 21.2726C42.9671 22.0452 41.6506 23.2041 40.6251 24.7493C39.5996 26.2669 39.0453 28.157 38.9621 30.4196H22C22.1386 24.901 23.4689 20.3482 25.9911 16.7612C28.5132 13.1465 31.853 10.4562 36.0104 8.69029C40.1678 6.89676 44.7548 6 49.7713 6C55.2868 6 60.1648 6.91056 64.4053 8.73168C68.6459 10.5252 71.9718 13.1327 74.3831 16.5542C76.7944 19.9757 78 24.1009 78 28.9296C78 32.1579 77.4595 35.0276 76.3786 37.5385C75.3254 40.0219 73.8426 42.2293 71.9302 44.1608C70.0178 46.0647 67.759 47.7893 65.1537 49.3344C62.9641 50.6313 61.1626 51.9834 59.7491 53.3906C58.3633 54.7978 57.3239 56.4258 56.631 58.2745C55.9658 60.1232 55.6194 62.3996 55.5917 65.1037V66.5109H39.8352ZM48.0668 93C45.2952 93 42.9255 92.0343 40.9577 90.1028C39.0176 88.1437 38.0614 85.7983 38.0891 83.0666C38.0614 80.3625 39.0176 78.0447 40.9577 76.1132C42.9255 74.1817 45.2952 73.216 48.0668 73.216C50.6998 73.216 53.0141 74.1817 55.0096 76.1132C57.0052 78.0447 58.0168 80.3625 58.0445 83.0666C58.0168 84.8877 57.5318 86.5571 56.5895 88.0747C55.6748 89.5647 54.4692 90.765 52.9725 91.6755C51.4759 92.5585 49.8406 93 48.0668 93Z" fill="black"/>
+        </svg>            
+        <div class="help-content">
+            <svg class="close-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M88.984 11.5161C85.274 7.80615 79.2589 7.80615 75.5489 11.5161L50.5 36.5651L25.4511 11.5162C21.7411 7.80618 15.726 7.80618 12.016 11.5162C8.30606 15.2261 8.30605 21.2412 12.016 24.9512L37.065 50.0001L12.0161 75.049C8.30607 78.759 8.30607 84.7741 12.0161 88.484C15.726 92.194 21.7411 92.194 25.4511 88.484L50.5 63.4351L75.5489 88.4841C79.2589 92.1941 85.274 92.1941 88.9839 88.4841C92.6939 84.7741 92.6939 78.759 88.984 75.049L63.935 50.0001L88.984 24.9512C92.6939 21.2412 92.6939 15.2261 88.984 11.5161Z" fill="black"/>
+            </svg>
+            <h3>How to play</h3>
+            <ul>
+                <li>Place all the pieces inside the blue area.</li>
+                <li>Click on the container to take a piece.</li>
+                <li>Click on the container again to stop holding the piece.</li>
+                <li>Use the right click to rotate the piece.</li>
+                <li>Click inside the blue area to place it.</li>
+                <li>Use right click on a placed piece to delete it.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="settings-button settings-trigger">
+        <svg class="settings-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M49.5097 65.725C45.4539 65.725 41.5642 64.1209 38.6964 61.2657C35.8285 58.4105 34.2174 54.5379 34.2174 50.5C34.2174 46.4621 35.8285 42.5895 38.6964 39.7343C41.5642 36.8791 45.4539 35.275 49.5097 35.275C53.5654 35.275 57.4551 36.8791 60.3229 39.7343C63.1908 42.5895 64.8019 46.4621 64.8019 50.5C64.8019 54.5379 63.1908 58.4105 60.3229 61.2657C57.4551 64.1209 53.5654 65.725 49.5097 65.725ZM81.973 54.7195C82.1478 53.3275 82.2788 51.9355 82.2788 50.5C82.2788 49.0645 82.1478 47.629 81.973 46.15L91.1921 39.0595C92.0222 38.407 92.2407 37.2325 91.7164 36.2755L82.9779 21.2245C82.4536 20.2675 81.2739 19.876 80.3127 20.2675L69.4333 24.6175C67.1613 22.921 64.8019 21.442 62.0493 20.3545L60.4327 8.827C60.2579 7.783 59.3404 7 58.2481 7H40.7712C39.6789 7 38.7614 7.783 38.5866 8.827L36.97 20.3545C34.2174 21.442 31.858 22.921 29.586 24.6175L18.7066 20.2675C17.7454 19.876 16.5657 20.2675 16.0414 21.2245L7.30293 36.2755C6.73493 37.2325 6.99708 38.407 7.82723 39.0595L17.0463 46.15C16.8715 47.629 16.7405 49.0645 16.7405 50.5C16.7405 51.9355 16.8715 53.3275 17.0463 54.7195L7.82723 61.9405C6.99708 62.593 6.73493 63.7675 7.30293 64.7245L16.0414 79.7755C16.5657 80.7325 17.7454 81.0805 18.7066 80.7325L29.586 76.339C31.858 78.079 34.2174 79.558 36.97 80.6455L38.5866 92.173C38.7614 93.217 39.6789 94 40.7712 94H58.2481C59.3404 94 60.2579 93.217 60.4327 92.173L62.0493 80.6455C64.8019 79.5145 67.1613 78.079 69.4333 76.339L80.3127 80.7325C81.2739 81.0805 82.4536 80.7325 82.9779 79.7755L91.7164 64.7245C92.2407 63.7675 92.0222 62.593 91.1921 61.9405L81.973 54.7195Z" fill="black"/>
+        </svg>
+    </div>
+    <div class="modal-container settings">
+        <div class="modal">
+            <svg class="close-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M88.984 11.5161C85.274 7.80615 79.2589 7.80615 75.5489 11.5161L50.5 36.5651L25.4511 11.5162C21.7411 7.80618 15.726 7.80618 12.016 11.5162C8.30606 15.2261 8.30605 21.2412 12.016 24.9512L37.065 50.0001L12.0161 75.049C8.30607 78.759 8.30607 84.7741 12.0161 88.484C15.726 92.194 21.7411 92.194 25.4511 88.484L50.5 63.4351L75.5489 88.4841C79.2589 92.1941 85.274 92.1941 88.9839 88.4841C92.6939 84.7741 92.6939 78.759 88.984 75.049L63.935 50.0001L88.984 24.9512C92.6939 21.2412 92.6939 15.2261 88.984 11.5161Z" fill="black"/>
+            </svg>
+            <h2 class="modal-title">Settings</h2>
+            <div class="sliders">
+                <div class="slider">
+                    <svg class="audio-button" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M65.7271 26.2551C67.3098 24.2608 70.1968 23.9375 72.1753 25.5329C75.4889 28.2049 77.5789 32.3308 78.8552 36.5121C80.1602 40.787 80.7785 45.6496 80.7785 50.4151C80.7785 55.1807 80.1602 60.0432 78.8552 64.3182C77.5789 68.4994 75.4889 72.6253 72.1753 75.2973C70.1968 76.8927 67.3098 76.5694 65.7271 74.5752C64.1443 72.5809 64.4651 69.671 66.4435 68.0756C67.7176 67.0482 69.0683 64.9315 70.0857 61.5984C71.0746 58.359 71.6032 54.4356 71.6032 50.4151C71.6032 46.3947 71.0746 42.4713 70.0857 39.2319C69.0683 35.8988 67.7176 33.782 66.4435 32.7547C64.4651 31.1593 64.1443 28.2493 65.7271 26.2551Z" fill="black"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M77.7604 16.8785C79.4134 14.943 82.31 14.7247 84.2302 16.3909C88.2701 19.8964 90.8934 25.38 92.5294 31.1471C94.197 37.0258 95 43.7672 95 50.4151C95 57.063 94.197 63.8044 92.5294 69.6831C90.8934 75.4502 88.2701 80.9338 84.2302 84.4394C82.31 86.1055 79.4134 85.8873 77.7604 83.9518C76.1073 82.0163 76.3239 79.0966 78.2441 77.4304C80.321 75.6281 82.2853 72.1548 83.7077 67.1405C85.0985 62.2378 85.8248 56.3732 85.8248 50.4151C85.8248 44.457 85.0985 38.5925 83.7077 33.6897C82.2853 28.6754 80.321 25.2021 78.2441 23.3999C76.3239 21.7337 76.1073 18.8139 77.7604 16.8785Z" fill="black"/>
+                        <path d="M57.3814 88.1468V11.8532C57.3814 10.2797 55.5561 9.42481 54.363 10.4395L28.0206 32.8431H13.3402C9.28632 32.8431 6 36.1557 6 40.2419V60.5884C6 64.6746 9.28632 67.9871 13.3402 67.9871H28.2418C28.3551 68.198 28.5093 68.3873 28.6985 68.5423L54.3892 89.5824C55.5884 90.5645 57.3814 89.7043 57.3814 88.1468Z" fill="black"/>
+                    </svg>
+                    <input class="audio-slider" type="range">
+                </div>
+                <div class="slider">
+                    <svg class="music-button" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M90.0237 22.302L90.0647 7L34.1784 13.3049L34.1785 67.0007C31.7656 65.9742 29.0049 65.3917 26.0719 65.3917C16.6202 65.3917 8.95807 71.4408 8.95807 78.9027C8.95807 86.3646 16.6202 92.4136 26.0719 92.4136C35.4578 92.4136 43.079 86.4485 43.1846 79.0584L43.1858 78.9027V26.8451L81.0164 23.1839V56.192C78.6035 55.1655 75.8428 54.583 72.9098 54.583C63.4581 54.583 55.796 60.6321 55.796 68.0939C55.796 75.5558 63.4581 81.6049 72.9098 81.6049C82.3615 81.6049 90.0237 75.5558 90.0237 68.0939C90.0237 67.7913 90.0111 67.4909 89.9862 67.1932H90.0237V22.302Z" fill="black"/>
+                    </svg>
+                    <input class="audio-slider" type="range">
+                </div>
+            </div>
+            <div class="buttons">
+                <a class="restart-button" href="">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21.5714 20.7243C20.1428 21.5811 20.1428 23.7232 21.5714 24.58L47.2857 40.0028C48.7143 40.8597 50.5 39.7886 50.5 38.0749V28.2174C65.2934 28.2174 77.2857 40.6756 77.2857 56.0435C77.2857 71.4114 65.2934 83.8696 50.5 83.8696C35.7066 83.8696 23.7143 71.4114 23.7143 56.0435C23.7143 52.9699 21.3159 50.4783 18.3571 50.4783C15.3984 50.4783 13 52.9699 13 56.0435C13 77.5586 29.7893 95 50.5 95C71.2107 95 88 77.5586 88 56.0435C88 34.5284 71.2107 17.087 50.5 17.087V7.22943C50.5 5.51578 48.7143 4.44472 47.2857 5.30158L21.5714 20.7243Z" fill="black"/>
+                    </svg>
+                </a>
+                <a class="levels-button" href="level-select.html">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 16.087C6 13.2775 8.25547 11 11.0377 11H17.7547C20.537 11 22.7925 13.2775 22.7925 16.087V22.8696C22.7925 25.679 20.537 27.9565 17.7547 27.9565H11.0377C8.25547 27.9565 6 25.679 6 22.8696V16.087Z" fill="black"/>
+                        <path d="M6 46.6087C6 43.7992 8.25547 41.5217 11.0377 41.5217H17.7547C20.537 41.5217 22.7925 43.7992 22.7925 46.6087V53.3913C22.7925 56.2008 20.537 58.4783 17.7547 58.4783H11.0377C8.25547 58.4783 6 56.2008 6 53.3913V46.6087Z" fill="black"/>
+                        <path d="M6 77.1304C6 74.321 8.25547 72.0435 11.0377 72.0435H17.7547C20.537 72.0435 22.7925 74.321 22.7925 77.1304V83.913C22.7925 86.7225 20.537 89 17.7547 89H11.0377C8.25547 89 6 86.7225 6 83.913V77.1304Z" fill="black"/>
+                        <path d="M31.1887 16.087C31.1887 13.2775 33.3314 11 35.9745 11H90.2141C92.8573 11 95 13.2775 95 16.087V22.8696C95 25.679 92.8573 27.9565 90.2141 27.9565H35.9745C33.3314 27.9565 31.1887 25.679 31.1887 22.8696V16.087Z" fill="black"/>
+                        <path d="M31.1887 46.6087C31.1887 43.7992 33.3314 41.5217 35.9745 41.5217H90.2141C92.8573 41.5217 95 43.7992 95 46.6087V53.3913C95 56.2008 92.8573 58.4783 90.2141 58.4783H35.9745C33.3314 58.4783 31.1887 56.2008 31.1887 53.3913V46.6087Z" fill="black"/>
+                        <path d="M31.1887 77.1304C31.1887 74.321 33.3314 72.0435 35.9745 72.0435H90.2141C92.8573 72.0435 95 74.321 95 77.1304V83.913C95 86.7225 92.8573 89 90.2141 89H35.9745C33.3314 89 31.1887 86.7225 31.1887 83.913V77.1304Z" fill="black"/>
+                    </svg>
+                </a>
+                <a class="home-button" href="index.html">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M41.2 87V60.8824H58.8V87H80.8V52.1765H94L50 13L6 52.1765H19.2V87H41.2Z" fill="black"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="modal-container win">
+        <div class="modal">
+            <h2 class="modal-title">You win</h2>
+            <div class="buttons">
+                <a class="levels-button" href="level-select.html">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 16.087C6 13.2775 8.25547 11 11.0377 11H17.7547C20.537 11 22.7925 13.2775 22.7925 16.087V22.8696C22.7925 25.679 20.537 27.9565 17.7547 27.9565H11.0377C8.25547 27.9565 6 25.679 6 22.8696V16.087Z" fill="black"/>
+                        <path d="M6 46.6087C6 43.7992 8.25547 41.5217 11.0377 41.5217H17.7547C20.537 41.5217 22.7925 43.7992 22.7925 46.6087V53.3913C22.7925 56.2008 20.537 58.4783 17.7547 58.4783H11.0377C8.25547 58.4783 6 56.2008 6 53.3913V46.6087Z" fill="black"/>
+                        <path d="M6 77.1304C6 74.321 8.25547 72.0435 11.0377 72.0435H17.7547C20.537 72.0435 22.7925 74.321 22.7925 77.1304V83.913C22.7925 86.7225 20.537 89 17.7547 89H11.0377C8.25547 89 6 86.7225 6 83.913V77.1304Z" fill="black"/>
+                        <path d="M31.1887 16.087C31.1887 13.2775 33.3314 11 35.9745 11H90.2141C92.8573 11 95 13.2775 95 16.087V22.8696C95 25.679 92.8573 27.9565 90.2141 27.9565H35.9745C33.3314 27.9565 31.1887 25.679 31.1887 22.8696V16.087Z" fill="black"/>
+                        <path d="M31.1887 46.6087C31.1887 43.7992 33.3314 41.5217 35.9745 41.5217H90.2141C92.8573 41.5217 95 43.7992 95 46.6087V53.3913C95 56.2008 92.8573 58.4783 90.2141 58.4783H35.9745C33.3314 58.4783 31.1887 56.2008 31.1887 53.3913V46.6087Z" fill="black"/>
+                        <path d="M31.1887 77.1304C31.1887 74.321 33.3314 72.0435 35.9745 72.0435H90.2141C92.8573 72.0435 95 74.321 95 77.1304V83.913C95 86.7225 92.8573 89 90.2141 89H35.9745C33.3314 89 31.1887 86.7225 31.1887 83.913V77.1304Z" fill="black"/>
+                    </svg>
+                </a>
+                <a class="home-button" href="index.html">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M41.2 87V60.8824H58.8V87H80.8V52.1765H94L50 13L6 52.1765H19.2V87H41.2Z" fill="black"/>
+                    </svg>
+                </a>
+                <a class="restart-button" href="">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21.5714 20.7243C20.1428 21.5811 20.1428 23.7232 21.5714 24.58L47.2857 40.0028C48.7143 40.8597 50.5 39.7886 50.5 38.0749V28.2174C65.2934 28.2174 77.2857 40.6756 77.2857 56.0435C77.2857 71.4114 65.2934 83.8696 50.5 83.8696C35.7066 83.8696 23.7143 71.4114 23.7143 56.0435C23.7143 52.9699 21.3159 50.4783 18.3571 50.4783C15.3984 50.4783 13 52.9699 13 56.0435C13 77.5586 29.7893 95 50.5 95C71.2107 95 88 77.5586 88 56.0435C88 34.5284 71.2107 17.087 50.5 17.087V7.22943C50.5 5.51578 48.7143 4.44472 47.2857 5.30158L21.5714 20.7243Z" fill="black"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

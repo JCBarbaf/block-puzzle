@@ -1,0 +1,8 @@
+body.level {
+    overflow: hidden;
+}
+main.level {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    padding-bottom: 1%;
+}
