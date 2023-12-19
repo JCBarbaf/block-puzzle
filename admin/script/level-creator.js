@@ -1,5 +1,5 @@
 export default (() => {
-    const saveButton = document.querySelector('.save')
+    const saveButton = document.querySelector('.save');
     const squares = document.querySelectorAll('.map .square');
     const mouseFollower = document.querySelector('.mouse-follower');
     const snapPoints = document.querySelectorAll('.map .square .snap-point');
@@ -9,87 +9,15 @@ export default (() => {
     const counterDisplay = document.querySelector('.piece-counter');
     const winModal = document.querySelector('.modal-container.win');
     const reach = 40;
+    const newTemplate = {piecesUsed: 0, template:[]};
     let pieceClone;
-    let templates = [
-        {
-            piecesUsed: 200,
-            template:
-                [1, 1, 1, 1, 1, 1, 1,
-                1, 1, 1, 1, 1, 1, 1,
-                1, 1, 1, 1, 1, 1, 1,
-                1, 1, 1, 1, 1, 1, 1,
-                1, 1, 1, 1, 1, 1, 1,
-                1, 1, 1, 1, 1, 1, 1,
-                1, 1, 1, 1, 1, 1, 1,]},
-        {
-            piecesUsed: 4,
-            template:
-                [1, 1, 0, 0, 0, 0, 0,
-                0, 1, 1, 1, 1, 0, 0,
-                1, 1, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0,]},
-        {
-            piecesUsed: 17,
-            template:
-                [1, 0, 0, 0, 0, 0, 1,
-                1, 1, 1, 0, 1, 1, 1,
-                1, 1, 1, 0, 1, 1, 1,
-                0, 1, 1, 1, 1, 1, 0,
-                0, 1, 1, 1, 1, 1, 0,
-                1, 1, 1, 0, 1, 1, 1,
-                1, 1, 0, 0, 0, 1, 1,]},
-        {
-            piecesUsed: 17,
-            template:
-                [1, 1, 1, 0, 0, 0, 0,
-                1, 1, 1, 1, 0, 0, 0,
-                1, 1, 1, 0, 0, 0, 0,
-                1, 1, 1, 1, 1, 1, 1,
-                0, 1, 1, 1, 1, 1, 0,
-                1, 1, 1, 1, 1, 1, 0,
-                1, 1, 1, 1, 0, 1, 1,]},
-        {
-            piecesUsed: 16,
-            template:
-                [1, 1, 1, 0, 1, 1, 1,
-                0, 1, 1, 1, 1, 1, 0,
-                0, 1, 0, 1, 0, 1, 0,
-                1, 1, 0, 0, 0, 1, 1,
-                0, 1, 0, 1, 0, 1, 0,
-                0, 1, 1, 1, 1, 1, 0,
-                1, 1, 1, 0, 1, 1, 1,]},
-        {
-            piecesUsed: 12,
-            template:
-                [1, 1, 0, 0, 0, 1, 1,
-                1, 0, 0, 1, 0, 0, 1,
-                1, 0, 0, 1, 0, 0, 1,
-                0, 1, 1, 0, 1, 1, 0,
-                1, 0, 0, 1, 0, 0, 1,
-                1, 0, 0, 1, 0, 0, 1,
-                1, 1, 0, 0, 0, 1, 1,]},
-        {
-            piecesUsed: 13,
-            template: 
-                [1, 0, 0, 0, 0, 0, 1,
-                1, 1, 0, 1, 0, 1, 1,
-                0, 1, 0, 1, 0, 1, 0,
-                0, 1, 1, 1, 1, 1, 0,
-                0, 1, 0, 1, 0, 1, 0,
-                1, 1, 0, 1, 0, 1, 1,
-                1, 0, 0, 1, 0, 0, 1]},
-    ];
+    let blankTemplate = {piecesUsed: 30, template: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,]};
     let positions = [{}];
-    // let randomIndex = Math.floor(Math.random() * templates.length);
-    let randomIndex = Math.floor(Math.random() * ((templates.length-1) - 2 + 1) + 2);
-    let counter = templates[randomIndex]['piecesUsed'];
+    let counter = blankTemplate['piecesUsed'];
     counterHandler();
     // Generate map using the template
-    for (let i = 0; i < templates[randomIndex]['template'].length; i++) {
-        if (templates[randomIndex]['template'][i] == 1) {
+    for (let i = 0; i < blankTemplate['template'].length; i++) {
+        if (blankTemplate['template'][i] == 1) {
             squares[i].classList.add('active');
         }
     }
@@ -161,7 +89,19 @@ export default (() => {
         pieceClone.addEventListener('contextmenu', rotatePiece)
         // On regular click place the piece
         pieceClone.addEventListener('click', findSnap);
-    })
+    });
+    // Save new template
+    saveButton.addEventListener('click', () => {
+        positions.forEach((snapPoint, i) => {
+            if (snapPoint) {
+                newTemplate.template[i] = 0;
+            } else {
+                newTemplate.template[i] = 1;
+            }
+        });
+        newTemplate.piecesUsed = blankTemplate.piecesUsed - counter;
+        console.log(newTemplate)
+    });
     //Move the piece with the mouse
     document.addEventListener('mousemove', (event) => {
         mouseFollower.style.top = (event.clientY - (mouseFollower.offsetHeight * 0.5)) + "px";
