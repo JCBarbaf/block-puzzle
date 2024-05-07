@@ -12,7 +12,7 @@ export default (async () => {
     const reach = 40;
     let pieceClone;
     let positions = [{}];
-    let index = new URLSearchParams(document.location.search).get("level")
+    let index = new URLSearchParams(document.location.search).get("level");
     document.querySelector('.level-counter').innerHTML = `Level ${index}`;
     let counter = templates[index]['piecesUsed'];
     counterHandler();

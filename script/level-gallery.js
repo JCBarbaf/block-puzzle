@@ -1,10 +1,11 @@
 import templates from "./db.js";
 export default (() => {
     const levelsContainer = document.querySelector('.levels');
-    let firstLevel = 1;
-    let lastLevel = 10;
-    loadLevels();
+    let firstLevel = 1
+    localStorage.getItem("firstLevel") ? firstLevel = parseInt(localStorage.getItem("firstLevel")) : null;
+    let lastLevel = firstLevel + 9;
     const pagination = document.querySelector('.pagination');
+    loadLevels();
     if (templates.length <= 10) {
       pagination.classList.add('hidden')
     } else {
@@ -26,20 +27,24 @@ export default (() => {
         pagination.appendChild(pageButton);
       }
       pagination.appendChild(arrowRight);
+      pagination.querySelector('.active').classList.remove('active');
+      pagination.querySelector(`[data-first-index="${firstLevel}"]`).classList.add('active');
     }
     pagination.addEventListener('click', (event) => {
       if (event.target.closest('.arrow.left') && firstLevel > 10) {
         firstLevel -= 10;
         lastLevel = firstLevel + 9;
-        pagination.querySelector('.active').classList.remove('active')
-        pagination.querySelector(`[data-first-index="${firstLevel}"]`).classList.add('active')
+        localStorage.setItem("firstLevel", firstLevel);
+        pagination.querySelector('.active').classList.remove('active');
+        pagination.querySelector(`[data-first-index="${firstLevel}"]`).classList.add('active');
         loadLevels();
       }
       if (event.target.closest('.arrow.right') && lastLevel <= templates.length-1) {
         firstLevel += 10;
         lastLevel = firstLevel + 9;
-        pagination.querySelector('.active').classList.remove('active')
-        pagination.querySelector(`[data-first-index="${firstLevel}"]`).classList.add('active')
+        localStorage.setItem("firstLevel", firstLevel);
+        pagination.querySelector('.active').classList.remove('active');
+        pagination.querySelector(`[data-first-index="${firstLevel}"]`).classList.add('active');
         loadLevels();
       }
       if (event.target.closest('.page') && !event.target.closest('.page.active')) {
@@ -47,7 +52,7 @@ export default (() => {
         event.target.closest('.page').classList.add('active');
         firstLevel = parseInt(event.target.closest('.page').dataset.firstIndex);
         lastLevel = firstLevel + 9;
-        console.log(`desde ${firstLevel} hasta ${lastLevel}`)
+        localStorage.setItem("firstLevel", firstLevel);
         loadLevels();
       }
     })
