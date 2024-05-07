@@ -100,7 +100,8 @@ export default (() => {
             }
         });
         newTemplate.piecesUsed = blankTemplate.piecesUsed - counter;
-        console.log(newTemplate)
+        var newWindow = window.open();
+        newWindow.document.write(JSON.stringify(newTemplate));
     });
     //Move the piece with the mouse
     document.addEventListener('mousemove', (event) => {

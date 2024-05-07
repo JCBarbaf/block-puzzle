@@ -1,4 +1,5 @@
-export default (() => {
+import templates from "./db.js";
+export default (async () => {
     const saveButton = document.querySelector('.save')
     const squares = document.querySelectorAll('.map .square');
     const mouseFollower = document.querySelector('.mouse-follower');
@@ -10,86 +11,14 @@ export default (() => {
     const winModal = document.querySelector('.modal-container.win');
     const reach = 40;
     let pieceClone;
-    let templates = [
-        {
-            piecesUsed: 200,
-            template:
-                [1, 1, 1, 1, 1, 1, 1,
-                1, 1, 1, 1, 1, 1, 1,
-                1, 1, 1, 1, 1, 1, 1,
-                1, 1, 1, 1, 1, 1, 1,
-                1, 1, 1, 1, 1, 1, 1,
-                1, 1, 1, 1, 1, 1, 1,
-                1, 1, 1, 1, 1, 1, 1,]},
-        {
-            piecesUsed: 4,
-            template:
-                [1, 1, 0, 0, 0, 0, 0,
-                0, 1, 1, 1, 1, 0, 0,
-                1, 1, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0,]},
-        {
-            piecesUsed: 17,
-            template:
-                [1, 0, 0, 0, 0, 0, 1,
-                1, 1, 1, 0, 1, 1, 1,
-                1, 1, 1, 0, 1, 1, 1,
-                0, 1, 1, 1, 1, 1, 0,
-                0, 1, 1, 1, 1, 1, 0,
-                1, 1, 1, 0, 1, 1, 1,
-                1, 1, 0, 0, 0, 1, 1,]},
-        {
-            piecesUsed: 17,
-            template:
-                [1, 1, 1, 0, 0, 0, 0,
-                1, 1, 1, 1, 0, 0, 0,
-                1, 1, 1, 0, 0, 0, 0,
-                1, 1, 1, 1, 1, 1, 1,
-                0, 1, 1, 1, 1, 1, 0,
-                1, 1, 1, 1, 1, 1, 0,
-                1, 1, 1, 1, 0, 1, 1,]},
-        {
-            piecesUsed: 16,
-            template:
-                [1, 1, 1, 0, 1, 1, 1,
-                0, 1, 1, 1, 1, 1, 0,
-                0, 1, 0, 1, 0, 1, 0,
-                1, 1, 0, 0, 0, 1, 1,
-                0, 1, 0, 1, 0, 1, 0,
-                0, 1, 1, 1, 1, 1, 0,
-                1, 1, 1, 0, 1, 1, 1,]},
-        {
-            piecesUsed: 12,
-            template:
-                [1, 1, 0, 0, 0, 1, 1,
-                1, 0, 0, 1, 0, 0, 1,
-                1, 0, 0, 1, 0, 0, 1,
-                0, 1, 1, 0, 1, 1, 0,
-                1, 0, 0, 1, 0, 0, 1,
-                1, 0, 0, 1, 0, 0, 1,
-                1, 1, 0, 0, 0, 1, 1,]},
-        {
-            piecesUsed: 13,
-            template: 
-                [1, 0, 0, 0, 0, 0, 1,
-                1, 1, 0, 1, 0, 1, 1,
-                0, 1, 0, 1, 0, 1, 0,
-                0, 1, 1, 1, 1, 1, 0,
-                0, 1, 0, 1, 0, 1, 0,
-                1, 1, 0, 1, 0, 1, 1,
-                1, 0, 0, 1, 0, 0, 1]},
-    ];
     let positions = [{}];
-    // let randomIndex = Math.floor(Math.random() * templates.length);
-    let randomIndex = Math.floor(Math.random() * ((templates.length-1) - 2 + 1) + 2);
-    let counter = templates[randomIndex]['piecesUsed'];
+    let index = new URLSearchParams(document.location.search).get("level")
+    document.querySelector('.level-counter').innerHTML = `Level ${index}`;
+    let counter = templates[index]['piecesUsed'];
     counterHandler();
     // Generate map using the template
-    for (let i = 0; i < templates[randomIndex]['template'].length; i++) {
-        if (templates[randomIndex]['template'][i] == 1) {
+    for (let i = 0; i < templates[index]['template'].length; i++) {
+        if (templates[index]['template'][i] == 1) {
             squares[i].classList.add('active');
         }
     }
