@@ -57,28 +57,37 @@ export default (() => {
       }
     })
     function loadLevels() {
+      let completedLevels = localStorage.getItem("completedLevels").split(',');
+      !completedLevels ? completedLevels = Array(templates.length).fill(0) : null;
       levelsContainer.innerHTML = "";
       for (let i = firstLevel; i < lastLevel+1; i++) {
         if (templates[i]) {
           const level = document.createElement('a');
           const levelHeader = document.createElement('header');
           const levelTitle = document.createElement('h3');
+          const star = document.createElement('img');
           const levelMain = document.createElement('main');
           const miniature = document.createElement('div');
           level.href = `level.html?level=${i}`;
           level.classList.add('level-box');
-          levelTitle.innerHTML = `Level ${i}`
-          miniature.classList.add('miniature')
+          levelTitle.innerHTML = `Level ${i}`;
+          star.src = './img/star.svg';
+          star.alt = 'level-completed';
+          star.title = 'Level completed';
+          star.classList.add('level-completed');
+          miniature.classList.add('miniature');
           for (let j = 0; j < templates[i]['template'].length; j++) {
-            const square = document.createElement('div')
-            square.classList.add('square')
+            const square = document.createElement('div');
+            square.classList.add('square');
             templates[i]['template'][j] == 1 ? square.classList.add('active'): null;
-            miniature.appendChild(square)
+            miniature.appendChild(square);
           }
-          levelHeader.appendChild(levelTitle)
-          level.appendChild(levelHeader)
-          levelMain.appendChild(miniature)
-          level.appendChild(levelMain)
+          levelHeader.appendChild(levelTitle);
+          levelHeader.appendChild(star);
+          level.appendChild(levelHeader);
+          levelMain.appendChild(miniature);
+          level.appendChild(levelMain);
+          completedLevels[i] == 1 ? level.classList.add('completed') : null;
           levelsContainer.appendChild(level);
         }
       };

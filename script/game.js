@@ -1,6 +1,5 @@
 import templates from "./db.js";
 export default (async () => {
-    const saveButton = document.querySelector('.save')
     const squares = document.querySelectorAll('.map .square');
     const mouseFollower = document.querySelector('.mouse-follower');
     const snapPoints = document.querySelectorAll('.map .square .snap-point');
@@ -155,6 +154,10 @@ export default (async () => {
     }
     function win() {
         winModal.classList.add('active');
+        let completedLevels = localStorage.getItem("completedLevels").split(',');
+        !completedLevels ? completedLevels = Array(templates.length).fill(0) : null;
+        completedLevels[parseInt(index)] = 1
+        localStorage.setItem("completedLevels", completedLevels)
         document.dispatchEvent(new CustomEvent('win'));
     }
 })();

@@ -74,11 +74,22 @@ main.level-select {
   cursor: pointer;
 }
 .level-box header {
-  padding: 0.1%;
+  position: relative;
+  padding: 1% 4%;
   background-color: #4493be;
   border-bottom: 0.3rem solid rgba(0, 0, 0, 0.2);
   font-size: 1rem;
   text-align: center;
+}
+.level-box .level-completed {
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 5%;
+  visibility: hidden;
+  margin: auto;
 }
 .level-box main {
   flex: 1;
@@ -88,6 +99,10 @@ main.level-select {
 }
 .level-box:hover {
   transform: scale(1.1);
+}
+
+.level-box.completed .level-completed {
+  visibility: visible;
 }
 
 .miniature {
