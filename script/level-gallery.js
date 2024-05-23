@@ -14,13 +14,16 @@ export default (() => {
       const arrowLeft = document.createElement('button');
       const arrowRight = document.createElement('button');
       arrowLeft.classList.add('arrow', 'left');
+      arrowLeft.dataset.sfx = "pop2"
       arrowRight.classList.add('arrow', 'right');
+      arrowRight.dataset.sfx = "pop2"
       arrowLeft.innerHTML = '<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M83.8343 41.3589C90.7219 45.1052 90.7219 54.8949 83.8343 58.6411L24.7723 90.7658C18.1285 94.3795 10 89.6247 10 82.1247L10 17.8753C10 10.3753 18.1285 5.6205 24.7723 9.23419L83.8343 41.3589Z" fill="black"/></svg>'
       arrowRight.innerHTML = '<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M83.8343 41.3589C90.7219 45.1052 90.7219 54.8949 83.8343 58.6411L24.7723 90.7658C18.1285 94.3795 10 89.6247 10 82.1247L10 17.8753C10 10.3753 18.1285 5.6205 24.7723 9.23419L83.8343 41.3589Z" fill="black"/></svg>'
       pagination.appendChild(arrowLeft);
       for (let i = 0; i < templates.length/10; i++) {
         const pageButton = document.createElement('button');
         pageButton.dataset.firstIndex = firstIndex;
+        pageButton.dataset.sfx = "pop4"
         firstIndex += 10;
         i == 0 ? pageButton.classList.add('active'): null;
         pageButton.classList.add('page');

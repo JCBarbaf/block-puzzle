@@ -34,7 +34,7 @@
 }
 
 main.level-select {
-  min-height: 100vh;
+  min-height: 98vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -75,11 +75,14 @@ main.level-select {
 }
 .level-box header {
   position: relative;
-  padding: 1% 4%;
+  padding: 6%;
   background-color: #4493be;
   border-bottom: 0.3rem solid rgba(0, 0, 0, 0.2);
   font-size: 1rem;
   text-align: center;
+}
+.level-box h3 {
+  margin: 0;
 }
 .level-box .level-completed {
   width: 2rem;

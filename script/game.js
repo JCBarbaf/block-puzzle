@@ -1,3 +1,4 @@
+import { playSound } from "./audio.js";
 import templates from "./db.js";
 export default (async () => {
     const squares = document.querySelectorAll('.map .square');
@@ -32,36 +33,37 @@ export default (async () => {
     }
     // rotate piece on right click
     const rotatePiece = (event) => {
+        playSound('pop3')
         event.preventDefault();
         pieceClone.classList.toggle('rotated');
     };
     const findSnap = () => {
-        pieceClone.classList.remove('clone');
-        let mouseRect = mouseFollower.getBoundingClientRect();
-        // Remove the piece if its close to the container
-        let pieceDistance = calculateDistance(piecePosition,{ x: mouseRect.x, y: mouseRect.y });
-        if (pieceDistance < 100) {
+      pieceClone.classList.remove('clone');
+      let mouseRect = mouseFollower.getBoundingClientRect();
+      // Remove the piece if its close to the container
+      let pieceDistance = calculateDistance(piecePosition,{ x: mouseRect.x, y: mouseRect.y });
+      if (pieceDistance < 100) {
             pieceClone.remove();
-        }
-        // Calculate the closest distance available
-        let closestDistance = null;
-        let closestDistanceIndex = null;
-        positions.forEach((snapPoint, i) => {
+          }
+          // Calculate the closest distance available
+          let closestDistance = null;
+          let closestDistanceIndex = null;
+          positions.forEach((snapPoint, i) => {
             if (snapPoint) {
                 let distance = calculateDistance(snapPoint, { x: mouseRect.x, y: mouseRect.y });
                 if (closestDistance) {
-                    if (distance < closestDistance) {
-                        closestDistance = distance;
-                        closestDistanceIndex = i;
-                    };
-                } else {
+                  if (distance < closestDistance) {
                     closestDistance = distance;
                     closestDistanceIndex = i;
+                  };
+                } else {
+                  closestDistance = distance;
+                  closestDistanceIndex = i;
                 }
-            }
-        });
-        // Check if the closest distance is in reach
-        if (closestDistance < reach) {
+              }
+            });
+            // Check if the closest distance is in reach
+            if (closestDistance < reach) {
             // Check if the piece fits
             if (pieceClone.classList.contains('rotated')) {
                 if (positions[closestDistanceIndex + 7]) {
@@ -102,6 +104,7 @@ export default (async () => {
         return Math.sqrt(dx * dx + dy * dy);
     };
     function placePiece(pieceIndex, isrotated) {
+        playSound('pop1')
         //Place piece
         pieceClone.classList.add('placed');
         // Remove previous events
@@ -142,6 +145,7 @@ export default (async () => {
         counterHandler();
     }
     function deletePiece(piece) {
+        playSound('pop2')
         piece.remove();
         counter++;
         counterHandler();
@@ -153,6 +157,7 @@ export default (async () => {
         }
     }
     function win() {
+        playSound('victory1')
         winModal.classList.add('active');
         let completedLevels = localStorage.getItem("completedLevels").split(',');
         !completedLevels ? completedLevels = Array(templates.length).fill(0) : null;

@@ -1,5 +1,5 @@
 main.level-select {
-    min-height: 100vh;
+    min-height: 98vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -36,11 +36,14 @@ main.level-select {
     cursor: pointer;
     header {
         position: relative;
-        padding: 1% 4%;
+        padding: 6%;
         background-color: $secondary-color;
         border-bottom: $border;
         font-size: 1rem;
         text-align: center;
+    }
+    h3 {
+      margin: 0;
     }
     .level-completed {
       width: 2rem;
