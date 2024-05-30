@@ -14,6 +14,11 @@ export default (async () => {
     let positions = [{}];
     let index = new URLSearchParams(document.location.search).get("level");
     document.querySelector('.level-counter').innerHTML = `Level ${index}`;
+    if (parseInt(index)+1 == templates.length) {
+      document.querySelector('.next-button').classList.add('hidden');
+    } else {
+      document.querySelector('.next-button').href = `?level=${parseInt(index)+1}`;
+    }
     let counter = templates[index]['piecesUsed'];
     counterHandler();
     // Generate map using the template

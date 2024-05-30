@@ -39,6 +39,13 @@
         svg * {
             fill: $grey;
         }
+        .sound-button {
+          display: none;
+          cursor: pointer;
+          &.active {
+            display: block;
+          }
+        }
     }
     input {
         width: 50%;

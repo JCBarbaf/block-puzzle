@@ -486,6 +486,9 @@ body {
   transform: scale(1.1);
   filter: brightness(1.1);
 }
+.modal a.hidden {
+  display: none;
+}
 .modal .close-icon {
   width: 5%;
   position: absolute;
@@ -538,6 +541,13 @@ body {
 }
 .settings .slider svg * {
   fill: #214a60;
+}
+.settings .slider .sound-button {
+  display: none;
+  cursor: pointer;
+}
+.settings .slider .sound-button.active {
+  display: block;
 }
 .settings input {
   width: 50%;
