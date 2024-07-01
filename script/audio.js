@@ -1,13 +1,13 @@
 function changeVolume(volumeType, newVolume) {
+  console.log(volumeType + ": " + newVolume)
   localStorage.setItem(volumeType, newVolume);
   document.querySelector(`audio[data-volume-type="${volumeType}"]`).volume = newVolume;
-  console.log(volumeType + ": " + newVolume)
 }
 
 function playSound(sound) {
   const audio = document.querySelector(`audio[data-volume-type="sfxVolume"]`)
   audio.src = `sound/sfx/${sound}.mp3`;
-  audio.volume = localStorage.getItem("musicVolume") || 0.5;
+  audio.volume = localStorage.getItem("sfxVolume") || 0.5;
   audio.play();
 }
 
@@ -20,17 +20,21 @@ export default (() => {
         if (event.target.closest('a')) {
           event.preventDefault();
           playSound(element.dataset.sfx);
-          window.location.href = element.href;
+          setTimeout(() => {
+            window.location.href = element.href;
+            console.log(element.dataset.sfx)
+          }, 300)
+        } else {
+          playSound(element.dataset.sfx);
         }
-        playSound(element.dataset.sfx);
       })
     })
     document.querySelectorAll('audio').forEach(audio => {
-      audio.muted = true;
-      audio.volume = localStorage.getItem("musicVolume") || 0.5;
-      audio.play().then(() => {
-        audio.muted = false;
-      });
+      console.log(localStorage.getItem('musicVolume'))
+      let defaultVolume = audio.dataset.volumeType == "musicVolume" ? 0 : 0.5;
+      audio.volume = localStorage.getItem(audio.dataset.volumeType) || defaultVolume;
+      audio.play()
+      console.log(audio.volume)
     })
 
   });

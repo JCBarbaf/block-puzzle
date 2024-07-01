@@ -60,8 +60,8 @@ export default (() => {
       }
     })
     function loadLevels() {
-      let completedLevels = localStorage.getItem("completedLevels").split(',');
-      !completedLevels ? completedLevels = Array(templates.length).fill(0) : null;
+      let completedLevels = localStorage.getItem("completedLevels");
+      !completedLevels ? completedLevels = Array(templates.length).fill(0) : completedLevels.split(',');
       levelsContainer.innerHTML = "";
       for (let i = firstLevel; i < lastLevel+1; i++) {
         if (templates[i]) {
