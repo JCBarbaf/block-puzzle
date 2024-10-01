@@ -61,7 +61,13 @@ export default (() => {
     })
     function loadLevels() {
       let completedLevels = localStorage.getItem("completedLevels");
-      !completedLevels ? completedLevels = Array(templates.length).fill(0) : completedLevels.split(',');
+      console.log(completedLevels)
+      if (completedLevels) {
+        completedLevels = completedLevels.split(',');
+      } else {
+        completedLevels = Array(templates.length).fill(0)
+      }
+      console.log(completedLevels)
       levelsContainer.innerHTML = "";
       for (let i = firstLevel; i < lastLevel+1; i++) {
         if (templates[i]) {
@@ -90,7 +96,13 @@ export default (() => {
           level.appendChild(levelHeader);
           levelMain.appendChild(miniature);
           level.appendChild(levelMain);
-          completedLevels[i] == 1 ? level.classList.add('completed') : null;
+          console.log(completedLevels[i])
+          if(completedLevels[i] == 1) {
+            level.classList.add('completed');
+            console.log('hola')
+          } else {
+            console.log("adios")
+          }
           levelsContainer.appendChild(level);
         }
       };

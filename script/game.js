@@ -15,9 +15,13 @@ export default (async () => {
     let index = new URLSearchParams(document.location.search).get("level");
     document.querySelector('.level-counter').innerHTML = `Level ${index}`;
     if (parseInt(index)+1 == templates.length) {
-      document.querySelector('.next-button').classList.add('hidden');
+      document.querySelectorAll('.next-button').forEach(button => {
+        button.classList.add('hidden');
+      })
     } else {
-      document.querySelector('.next-button').href = `?level=${parseInt(index)+1}`;
+      document.querySelectorAll('.next-button').forEach(button => {
+        button.href = `?level=${parseInt(index)+1}`;
+      })
     }
     let counter = templates[index]['piecesUsed'];
     counterHandler();
@@ -162,11 +166,13 @@ export default (async () => {
         }
     }
     function win() {
+        console.log(index)
         playSound('victory1')
         winModal.classList.add('active');
         let completedLevels = localStorage.getItem("completedLevels").split(',');
         !completedLevels ? completedLevels = Array(templates.length).fill(0) : null;
         completedLevels[parseInt(index)] = 1
+        console.log(completedLevels)
         localStorage.setItem("completedLevels", completedLevels)
         document.dispatchEvent(new CustomEvent('win'));
     }
